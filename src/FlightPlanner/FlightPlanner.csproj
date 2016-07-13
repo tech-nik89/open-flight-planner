@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BC12688-55B3-4248-871D-F51EB76594E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlightPlanner</RootNamespace>
+    <AssemblyName>FlightPlanner</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\ExternalLibraries\Newtonsoft\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WMM_Magnetic_Field_Calculator">
+      <HintPath>..\ExternalLibraries\WMM\WMM_Magnetic_Field_Calculator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedSources\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Aircrafts\Aircraft.cs" />
+    <Compile Include="Aircrafts\CenterOfGravity.cs" />
+    <Compile Include="Aircrafts\CenterOfGravityLimit.cs" />
+    <Compile Include="Briefing\Fuel.cs" />
+    <Compile Include="Aircrafts\FuelTank.cs" />
+    <Compile Include="Aircrafts\LoadingStation.cs" />
+    <Compile Include="Aircrafts\Performance.cs" />
+    <Compile Include="Airspaces\Airspace.cs" />
+    <Compile Include="Airspaces\AirspaceAltitude.cs" />
+    <Compile Include="Airspaces\AirspaceClass.cs" />
+    <Compile Include="Airspaces\AltitudeType.cs" />
+    <Compile Include="Airspaces\ArcDirection.cs" />
+    <Compile Include="Airspaces\Segments\AirspaceSegment.cs" />
+    <Compile Include="Airspaces\Segments\ArcByAngleAirspaceSegment.cs" />
+    <Compile Include="Airspaces\Segments\ArcByCoordinatesAirspaceSegment.cs" />
+    <Compile Include="Airspaces\Segments\CircleByRadiusAirspaceSegment.cs" />
+    <Compile Include="Airspaces\Segments\PolygonAirspaceSegment.cs" />
+    <Compile Include="Briefing\FlightPlan.cs" />
+    <Compile Include="Briefing\MassAndBalance.cs" />
+    <Compile Include="Briefing\MassAndBalanceItem.cs" />
+    <Compile Include="Briefing\WeatherBriefing.cs" />
+    <Compile Include="Common\Country.cs" />
+    <Compile Include="Common\Frequency.cs" />
+    <Compile Include="Common\VariationCalculator.cs" />
+    <Compile Include="Common\Wind.cs" />
+    <Compile Include="Configuration\OpenAIPFile.cs" />
+    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\DataFile.cs" />
+    <Compile Include="Configuration\OpenAirFile.cs" />
+    <Compile Include="Configuration\Welt2kFile.cs" />
+    <Compile Include="Exceptions\AircraftNotFoundException.cs" />
+    <Compile Include="Exceptions\PluginNotConfiguredException.cs" />
+    <Compile Include="Export\GPXExporter.cs" />
+    <Compile Include="Export\KMLExporter.cs" />
+    <Compile Include="Export\RouteExporter.cs" />
+    <Compile Include="Export\WaypointPlusExporter.cs" />
+    <Compile Include="Interfaces\IAirspaceParser.cs" />
+    <Compile Include="Interfaces\ICloneable.cs" />
+    <Compile Include="Interfaces\IRouteExporter.cs" />
+    <Compile Include="Interfaces\IWaypointParser.cs" />
+    <Compile Include="Notams\Notam.cs" />
+    <Compile Include="Parser\OpenAIPParser.cs" />
+    <Compile Include="Plugins\IEnrouteWeatherSource.cs" />
+    <Compile Include="Plugins\IFlightLogExport.cs" />
+    <Compile Include="Plugins\IMetarWeatherSource.cs" />
+    <Compile Include="Plugins\INotamSource.cs" />
+    <Compile Include="Plugins\IPlugin.cs" />
+    <Compile Include="Plugins\PluginManager.cs" />
+    <Compile Include="Ressources\RessourceManager.cs" />
+    <Compile Include="Parser\OpenAirParser.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\Welt2kParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\FlightPlanXmlDocument.cs" />
+    <Compile Include="Tools\Formatting.cs" />
+    <Compile Include="Units\Airspeed.cs" />
+    <Compile Include="Units\Altitude.cs" />
+    <Compile Include="Units\Distance.cs" />
+    <Compile Include="Units\Elevation.cs" />
+    <Compile Include="Units\FlightLevel.cs" />
+    <Compile Include="Tools\Utilities.cs" />
+    <Compile Include="Units\Pressure.cs" />
+    <Compile Include="Waypoints\Airfield.cs" />
+    <Compile Include="Waypoints\Coordinate.cs" />
+    <Compile Include="Waypoints\Leg.cs" />
+    <Compile Include="Waypoints\Navaid.cs" />
+    <Compile Include="Waypoints\Route.cs" />
+    <Compile Include="Waypoints\Runway.cs" />
+    <Compile Include="Waypoints\Waypoint.cs" />
+    <Compile Include="Waypoints\WaypointMoveDirection.cs" />
+    <Compile Include="Weather\Gafor\GaforAreaStatus.cs" />
+    <Compile Include="Weather\Gafor\GaforForecast.cs" />
+    <Compile Include="Weather\Gafor\GaforInfo.cs" />
+    <Compile Include="Weather\MetarTaf\Clouds.cs" />
+    <Compile Include="Weather\MetarTaf\FlightCategory.cs" />
+    <Compile Include="Weather\MetarTaf\SkyCoverage.cs" />
+    <Compile Include="Weather\MetarTaf\Metar.cs" />
+    <Compile Include="Weather\MetarTaf\Taf.cs" />
+    <Compile Include="Weather\MetarTaf\MetarTafInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

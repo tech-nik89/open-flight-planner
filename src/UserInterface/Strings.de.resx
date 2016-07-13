@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accept" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="AftLimit" xml:space="preserve">
+    <value>Hintere Grenzlage</value>
+  </data>
+  <data name="Aircraft" xml:space="preserve">
+    <value>Luftfahrzeug</value>
+  </data>
+  <data name="AircraftsManage" xml:space="preserve">
+    <value>Luftfahrzeuge verwalten</value>
+  </data>
+  <data name="AlternateMass" xml:space="preserve">
+    <value>Ausweichflugplatz</value>
+  </data>
+  <data name="Altimeter" xml:space="preserve">
+    <value>Luftdruck</value>
+  </data>
+  <data name="Altitude" xml:space="preserve">
+    <value>Höhe</value>
+  </data>
+  <data name="Briefing" xml:space="preserve">
+    <value>Briefing</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Capacity" xml:space="preserve">
+    <value>Kapazität</value>
+  </data>
+  <data name="Ceiling" xml:space="preserve">
+    <value>Wolkenuntergrenze</value>
+  </data>
+  <data name="CenterOfGravity" xml:space="preserve">
+    <value>Schwerpunkt</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Fertig</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Länder</value>
+  </data>
+  <data name="CountryName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CruisePerformance" xml:space="preserve">
+    <value>Reiseleistung</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Ändern</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
+  <data name="ExtraFuelMass" xml:space="preserve">
+    <value>Extra</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="FileNotFoundError" xml:space="preserve">
+    <value>Die Datei konnte nicht gefunden werden.</value>
+  </data>
+  <data name="FinalReserveMass" xml:space="preserve">
+    <value>Finale Reserve</value>
+  </data>
+  <data name="Forecast" xml:space="preserve">
+    <value>Vorhersage</value>
+  </data>
+  <data name="ForwardLimit" xml:space="preserve">
+    <value>Vordere Grenzlage</value>
+  </data>
+  <data name="Fuel" xml:space="preserve">
+    <value>Sprit</value>
+  </data>
+  <data name="FuelConsumption" xml:space="preserve">
+    <value>Spritverbrauch</value>
+  </data>
+  <data name="FuelFlow" xml:space="preserve">
+    <value>Spritverbrauch</value>
+  </data>
+  <data name="FuelTanks" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="Gafor" xml:space="preserve">
+    <value>GAFOR</value>
+  </data>
+  <data name="GaforArea" xml:space="preserve">
+    <value>GAFOR Bereich</value>
+  </data>
+  <data name="Groundspeed" xml:space="preserve">
+    <value>Geschwindigkeit über Grund</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="LandingMass" xml:space="preserve">
+    <value>Landung</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Breitengrad</value>
+  </data>
+  <data name="Leg" xml:space="preserve">
+    <value>Streckenabschnitt</value>
+  </data>
+  <data name="LegDetails" xml:space="preserve">
+    <value>Streckenabschnitt Details</value>
+  </data>
+  <data name="Legs" xml:space="preserve">
+    <value>Streckenabschnitte</value>
+  </data>
+  <data name="LegSettings" xml:space="preserve">
+    <value>Einstellungen für Streckenabschnitt</value>
+  </data>
+  <data name="LeverArm" xml:space="preserve">
+    <value>Arm</value>
+  </data>
+  <data name="LoadFlightPlanAircraftNotFoundError" xml:space="preserve">
+    <value>Das im Flugplan verwendete Luftfahrzeug konnte nicht gefunden werden.</value>
+  </data>
+  <data name="LoadFlightPlanGeneralError" xml:space="preserve">
+    <value>Beim Laden des Flugplans ist ein Fehler aufgetreten.\r\n{0}</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Lädt ...</value>
+  </data>
+  <data name="LoadingStations" xml:space="preserve">
+    <value>Beladestationen</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Längengrad</value>
+  </data>
+  <data name="MagneticHeading" xml:space="preserve">
+    <value>Magnetischer Steuerkurs</value>
+  </data>
+  <data name="MagneticTrack" xml:space="preserve">
+    <value>Magnetischer Kurs</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>Karte</value>
+  </data>
+  <data name="Mass" xml:space="preserve">
+    <value>Masse</value>
+  </data>
+  <data name="MassAndBalance" xml:space="preserve">
+    <value>Masse und Schwerpunkt</value>
+  </data>
+  <data name="Metar" xml:space="preserve">
+    <value>METAR</value>
+  </data>
+  <data name="MetarTafDetails" xml:space="preserve">
+    <value>METAR / TAF</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Neu</value>
+  </data>
+  <data name="Notams" xml:space="preserve">
+    <value>NOTAMS</value>
+  </data>
+  <data name="ResourceFiles" xml:space="preserve">
+    <value>Ressource Dateien</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Öffnen</value>
+  </data>
+  <data name="Plugins" xml:space="preserve">
+    <value>Erweiterungen</value>
+  </data>
+  <data name="PressureAltitude" xml:space="preserve">
+    <value>Druckhöhe</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+  <data name="RampMass" xml:space="preserve">
+    <value>Ramp</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Bereit</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Kennzeichen</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="ResourceName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Route" xml:space="preserve">
+    <value>Route</value>
+  </data>
+  <data name="RouteGlobalSettings" xml:space="preserve">
+    <value>Globale Strecken Einstellungen</value>
+  </data>
+  <data name="RouteUpperWind" xml:space="preserve">
+    <value>Oberen Wind übernehmen</value>
+  </data>
+  <data name="RouteWaypointAddFree" xml:space="preserve">
+    <value>Freien Wegpunkt hinzufügen</value>
+  </data>
+  <data name="RouteWaypointAddKnown" xml:space="preserve">
+    <value>Bekannten Wegpunkt hinzufügen</value>
+  </data>
+  <data name="RouteWaypointsMoveDown" xml:space="preserve">
+    <value>Wegpunkte nach unten schieben</value>
+  </data>
+  <data name="RouteWaypointsMoveUp" xml:space="preserve">
+    <value>Wegpunkte nach oben schieben</value>
+  </data>
+  <data name="RouteWaypointsRemove" xml:space="preserve">
+    <value>Ausgewählte Wegpunkte entfernen</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Speichern unter ...</value>
+  </data>
+  <data name="SaveFlightPlanGeneralError" xml:space="preserve">
+    <value>Beim Speichern des Flugplans ist ein Fehler aufgetreten.\r\n{0}</value>
+  </data>
+  <data name="SaveFlightPlanInvalidPathError" xml:space="preserve">
+    <value>Es muss ein Pfad angegeben werden.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="SearchFor" xml:space="preserve">
+    <value>Suchen nach</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="StartupAndTaxiMass" xml:space="preserve">
+    <value>Anlassen und Rollen</value>
+  </data>
+  <data name="Station" xml:space="preserve">
+    <value>Station</value>
+  </data>
+  <data name="TakeOffMass" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperatur</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Zeit</value>
+  </data>
+  <data name="TripFuelMass" xml:space="preserve">
+    <value>Trip Fuel</value>
+  </data>
+  <data name="TrueAirspeed" xml:space="preserve">
+    <value>Wahre Eigengeschwindigkeit</value>
+  </data>
+  <data name="TrueTrack" xml:space="preserve">
+    <value>Wahrer Kurs</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Unsaved" xml:space="preserve">
+    <value>Ungespeichert</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="UseAircraft" xml:space="preserve">
+    <value>Luftfahrzeug verwenden</value>
+  </data>
+  <data name="Variation" xml:space="preserve">
+    <value>Variation</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Sicht</value>
+  </data>
+  <data name="Visible" xml:space="preserve">
+    <value>Sichtbar</value>
+  </data>
+  <data name="Waypoint" xml:space="preserve">
+    <value>Wegpunkt</value>
+  </data>
+  <data name="Weather" xml:space="preserve">
+    <value>Wetter</value>
+  </data>
+  <data name="WeatherBriefing" xml:space="preserve">
+    <value>Wetter Briefing</value>
+  </data>
+  <data name="WeatherSourceEnroute" xml:space="preserve">
+    <value>Streckenwetter Quelle</value>
+  </data>
+  <data name="WeatherSourceMetar" xml:space="preserve">
+    <value>METAR Quelle</value>
+  </data>
+  <data name="Wind" xml:space="preserve">
+    <value>Wind</value>
+  </data>
+  <data name="WindCorrectionAngle" xml:space="preserve">
+    <value>WCA</value>
+  </data>
+  <data name="WindowTitle" xml:space="preserve">
+    <value>{0}{1} - Open Flight Planner</value>
+  </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>Vergrößern</value>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>Verkleinern</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Bereich</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="Notam" xml:space="preserve">
+    <value>NOTAM</value>
+  </data>
+  <data name="NotamSource" xml:space="preserve">
+    <value>NOTAM Quelle</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Nummer</value>
+  </data>
+  <data name="PluginNotConfigured" xml:space="preserve">
+    <value>Keine {0}-Erweiterung konfiguriert.</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Jahr</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="Distance" xml:space="preserve">
+    <value>Distanz</value>
+  </data>
+  <data name="Weighing" xml:space="preserve">
+    <value>Wägung</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="RequiresRestart" xml:space="preserve">
+    <value>Erfordert einen Neustart der Software.</value>
+  </data>
+  <data name="WaypointsFound" xml:space="preserve">
+    <value>Wegpunkte gefunden: {0}</value>
+  </data>
+  <data name="Airfield" xml:space="preserve">
+    <value>Flugplatz</value>
+  </data>
+  <data name="AddToRoute" xml:space="preserve">
+    <value>Zur Route hinzufügen</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Koordinaten</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Richtung</value>
+  </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Höhe</value>
+  </data>
+  <data name="Frequency" xml:space="preserve">
+    <value>Frequenz</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="Runways" xml:space="preserve">
+    <value>Pisten</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="Surface" xml:space="preserve">
+    <value>Oberfläche</value>
+  </data>
+  <data name="Disclaimer" xml:space="preserve">
+    <value>Haftungsausschluss</value>
+  </data>
+  <data name="ThirdpartyComponents" xml:space="preserve">
+    <value>Drittanbieter Komponenten</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="RemoveConfirm" xml:space="preserve">
+    <value>Entfernen bestätigen</value>
+  </data>
+  <data name="RemoveFileConfirm" xml:space="preserve">
+    <value>Soll die ausgewählte Datei wirklich entfernt werden?</value>
+  </data>
+  <data name="SuggestLoadingDefaultRessourcesMessage" xml:space="preserve">
+    <value>Es sind derzeit keine Online Ressourcen konfiguriert. Sollen die Standard Ressourcen geladen werden?</value>
+  </data>
+  <data name="SuggestLoadingDefaultRessourcesTitle" xml:space="preserve">
+    <value>Standard Ressourcen laden</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="UpdateOnlineRessources" xml:space="preserve">
+    <value>Alle Online Ressourcen aktualisieren</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Pfad</value>
+  </data>
+  <data name="Local" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Ort</value>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Resource" xml:space="preserve">
+    <value>Ressource</value>
+  </data>
+  <data name="Airspace" xml:space="preserve">
+    <value>Luftraum</value>
+  </data>
+  <data name="Airspaces" xml:space="preserve">
+    <value>Lufträume</value>
+  </data>
+</root>
