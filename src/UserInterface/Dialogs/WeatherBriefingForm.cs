@@ -101,6 +101,10 @@ namespace FlightPlanner.UserInterface.Dialogs {
 				pbxSWC.Image = _Weather.SignificantWeather;
 			}
 
+			if (!String.IsNullOrWhiteSpace(_Weather.TextReport)) {
+				txtTextReport.Text = _Weather.TextReport;
+			}
+
 			FillGaforDropDown();
 
 			tslStatus.Text = Strings.Completed;

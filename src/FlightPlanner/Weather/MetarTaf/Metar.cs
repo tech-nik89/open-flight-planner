@@ -36,13 +36,13 @@ namespace FlightPlanner.Weather.MetarTaf {
 		public Clouds Ceiling {
 			get {
 				List<Clouds> clouds = Clouds
-					.Where(c => c.Coverage == SkyCoverage.Broken || c.Coverage == SkyCoverage.Overcast)
+					.Where(c => c.Coverage == SkyCoverage.Broken || c.Coverage == SkyCoverage.Overcast || c.Coverage == SkyCoverage.CAVOK)
 					.OrderBy(c => c.Coverage).ToList();
 
 				if (clouds.Any()) {
 					return clouds[0];
 				}
-
+				
 				return null;
 			}
 		}

@@ -44,11 +44,17 @@ namespace FlightPlanner.PCMET {
 			tafDocument.LoadXml(tafXml);
 
 			if (departureAirport != null) {
-				list.Add(GetMetarTafFromDocuments(departureAirport.ICAOCode, metarDocument, tafDocument));
+				MetarTafInfo info = GetMetarTafFromDocuments(departureAirport.ICAOCode, metarDocument, tafDocument);
+				if (info != null && info.Metar != null) {
+					list.Add(info);
+				}
 			}
 
 			if (destinationAirport != null) {
-				list.Add(GetMetarTafFromDocuments(destinationAirport.ICAOCode, metarDocument, tafDocument));
+				MetarTafInfo info = GetMetarTafFromDocuments(destinationAirport.ICAOCode, metarDocument, tafDocument);
+				if (info != null && info.Metar != null) {
+					list.Add(info);
+				}
 			}
 
 			return list;

@@ -120,8 +120,14 @@
   <data name="AddToRoute" xml:space="preserve">
     <value>Zur Route hinzufügen</value>
   </data>
+  <data name="AddWaypointMessage" xml:space="preserve">
+    <value>Auf die Karte klicken um einen neuen Wegpunkt hinzuzufügen.</value>
+  </data>
   <data name="Elevation" xml:space="preserve">
     <value>Höhe</value>
+  </data>
+  <data name="MoveWaypointMessage" xml:space="preserve">
+    <value>Auf die Karte klicken um den ausgewählten Wegpunkt zu verschieben.</value>
   </data>
   <data name="ShowDetails" xml:space="preserve">
     <value>Details anzeigen</value>

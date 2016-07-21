@@ -23,9 +23,10 @@ namespace HtmlExport {
 					AddMetarTaf(document, item);
 				}
 
-				AddGafor(document, weather.Gafor);
+				AddGafor(document, weather);
+				AddTextReport(document, weather);
 
-				AddSignificantWeather(document, weather.SignificantWeather);
+				AddSignificantWeather(document, weather);
 			}
 			catch (Exception e) {
 				document.Append("<p>Error: ");
@@ -34,8 +35,21 @@ namespace HtmlExport {
 			}
 		}
 
-		private static void AddSignificantWeather(StringBuilder document, Image significantWeather) {
-			if (significantWeather == null) {
+		private static void AddTextReport(StringBuilder document, WeatherBriefing briefing) {
+			if (String.IsNullOrWhiteSpace(briefing.TextReport)) {
+				return;
+			}
+
+			String report = briefing.TextReport.Replace("\r\n", "<br />\r\n");
+
+			document.AppendLine("<h1>Weather Report</h1>");
+			document.AppendLine("<p>");
+			document.AppendLine(report);
+			document.AppendLine("</p>");
+		}
+
+		private static void AddSignificantWeather(StringBuilder document, WeatherBriefing briefing) {
+			if (briefing.SignificantWeather == null) {
 				return;
 			}
 
@@ -44,7 +58,7 @@ namespace HtmlExport {
 			document.Append("<img src=\"data:image/");
 			document.Append(_ImageFormat.ToString().ToLower());
 			document.Append(";base64,");
-			document.Append(BitmapToBase64(significantWeather));
+			document.Append(BitmapToBase64(briefing.SignificantWeather));
 			document.Append("\" alt=\"SWC Image\"");
 			document.Append(" style=\"width:");
 			document.Append("100%");
@@ -73,8 +87,8 @@ namespace HtmlExport {
 			}
 		}
 
-		private static void AddGafor(StringBuilder document, GaforInfo gafor) {
-			if (gafor == null) {
+		private static void AddGafor(StringBuilder document, WeatherBriefing briefing) {
+			if (briefing.Gafor == null) {
 				return;
 			}
 
@@ -83,8 +97,9 @@ namespace HtmlExport {
 
 			String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "gafor.svg");
 			SvgDocument svg = SvgDocument.Open(path);
-			
-			for(Int32 i = 0; i < gafor.Forecasts.Length; i++) {
+			GaforInfo gafor = briefing.Gafor;
+
+			for (Int32 i = 0; i < gafor.Forecasts.Length; i++) {
 				document.AppendLine("<div class=\"left\">");
 				document.Append("<h2>");
 				document.Append(gafor.Forecasts[i]);

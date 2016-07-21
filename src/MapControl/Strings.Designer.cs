@@ -70,11 +70,29 @@ namespace FlightPlanner.MapControl {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Click on the map to add a new waypoint. ähnelt.
+        /// </summary>
+        internal static string AddWaypointMessage {
+            get {
+                return ResourceManager.GetString("AddWaypointMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Elevation ähnelt.
         /// </summary>
         internal static string Elevation {
             get {
                 return ResourceManager.GetString("Elevation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Click on the map to move the selected waypoint. ähnelt.
+        /// </summary>
+        internal static string MoveWaypointMessage {
+            get {
+                return ResourceManager.GetString("MoveWaypointMessage", resourceCulture);
             }
         }
         

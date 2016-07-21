@@ -41,11 +41,13 @@
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.lblForecast = new System.Windows.Forms.ToolStripLabel();
 			this.tscForecast = new System.Windows.Forms.ToolStripComboBox();
+			this.tabSWC = new System.Windows.Forms.TabPage();
+			this.pnlSWC = new System.Windows.Forms.Panel();
+			this.pbxSWC = new System.Windows.Forms.PictureBox();
 			this.ssMain = new System.Windows.Forms.StatusStrip();
 			this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
-			this.tabSWC = new System.Windows.Forms.TabPage();
-			this.pbxSWC = new System.Windows.Forms.PictureBox();
-			this.pnlSWC = new System.Windows.Forms.Panel();
+			this.tabTextReport = new System.Windows.Forms.TabPage();
+			this.txtTextReport = new System.Windows.Forms.TextBox();
 			this.tabMain.SuspendLayout();
 			this.tabMetar.SuspendLayout();
 			this.tabGafor.SuspendLayout();
@@ -55,10 +57,11 @@
 			this.scMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbxGafor)).BeginInit();
 			this.toolStrip1.SuspendLayout();
-			this.ssMain.SuspendLayout();
 			this.tabSWC.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pbxSWC)).BeginInit();
 			this.pnlSWC.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbxSWC)).BeginInit();
+			this.ssMain.SuspendLayout();
+			this.tabTextReport.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabMain
@@ -68,6 +71,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tabMain.Controls.Add(this.tabMetar);
 			this.tabMain.Controls.Add(this.tabGafor);
+			this.tabMain.Controls.Add(this.tabTextReport);
 			this.tabMain.Controls.Add(this.tabSWC);
 			this.tabMain.Location = new System.Drawing.Point(0, 1);
 			this.tabMain.Name = "tabMain";
@@ -230,6 +234,35 @@
 			this.tscForecast.Size = new System.Drawing.Size(121, 25);
 			this.tscForecast.SelectedIndexChanged += new System.EventHandler(this.tscForecast_SelectedIndexChanged);
 			// 
+			// tabSWC
+			// 
+			this.tabSWC.Controls.Add(this.pnlSWC);
+			this.tabSWC.Location = new System.Drawing.Point(4, 22);
+			this.tabSWC.Name = "tabSWC";
+			this.tabSWC.Padding = new System.Windows.Forms.Padding(3);
+			this.tabSWC.Size = new System.Drawing.Size(656, 319);
+			this.tabSWC.TabIndex = 2;
+			this.tabSWC.Text = "Significant Weather";
+			this.tabSWC.UseVisualStyleBackColor = true;
+			// 
+			// pnlSWC
+			// 
+			this.pnlSWC.AutoScroll = true;
+			this.pnlSWC.Controls.Add(this.pbxSWC);
+			this.pnlSWC.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnlSWC.Location = new System.Drawing.Point(3, 3);
+			this.pnlSWC.Name = "pnlSWC";
+			this.pnlSWC.Size = new System.Drawing.Size(650, 313);
+			this.pnlSWC.TabIndex = 1;
+			// 
+			// pbxSWC
+			// 
+			this.pbxSWC.Location = new System.Drawing.Point(3, 3);
+			this.pbxSWC.Name = "pbxSWC";
+			this.pbxSWC.Size = new System.Drawing.Size(100, 50);
+			this.pbxSWC.TabIndex = 0;
+			this.pbxSWC.TabStop = false;
+			// 
 			// ssMain
 			// 
 			this.ssMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -246,34 +279,27 @@
 			this.tslStatus.Size = new System.Drawing.Size(39, 17);
 			this.tslStatus.Text = "Ready";
 			// 
-			// tabSWC
+			// tabTextReport
 			// 
-			this.tabSWC.Controls.Add(this.pnlSWC);
-			this.tabSWC.Location = new System.Drawing.Point(4, 22);
-			this.tabSWC.Name = "tabSWC";
-			this.tabSWC.Padding = new System.Windows.Forms.Padding(3);
-			this.tabSWC.Size = new System.Drawing.Size(656, 319);
-			this.tabSWC.TabIndex = 2;
-			this.tabSWC.Text = "Significant Weather";
-			this.tabSWC.UseVisualStyleBackColor = true;
+			this.tabTextReport.Controls.Add(this.txtTextReport);
+			this.tabTextReport.Location = new System.Drawing.Point(4, 22);
+			this.tabTextReport.Name = "tabTextReport";
+			this.tabTextReport.Padding = new System.Windows.Forms.Padding(3);
+			this.tabTextReport.Size = new System.Drawing.Size(656, 319);
+			this.tabTextReport.TabIndex = 3;
+			this.tabTextReport.Text = "Report";
+			this.tabTextReport.UseVisualStyleBackColor = true;
 			// 
-			// pbxSWC
+			// txtTextReport
 			// 
-			this.pbxSWC.Location = new System.Drawing.Point(3, 3);
-			this.pbxSWC.Name = "pbxSWC";
-			this.pbxSWC.Size = new System.Drawing.Size(100, 50);
-			this.pbxSWC.TabIndex = 0;
-			this.pbxSWC.TabStop = false;
-			// 
-			// pnlSWC
-			// 
-			this.pnlSWC.AutoScroll = true;
-			this.pnlSWC.Controls.Add(this.pbxSWC);
-			this.pnlSWC.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlSWC.Location = new System.Drawing.Point(3, 3);
-			this.pnlSWC.Name = "pnlSWC";
-			this.pnlSWC.Size = new System.Drawing.Size(650, 313);
-			this.pnlSWC.TabIndex = 1;
+			this.txtTextReport.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtTextReport.Location = new System.Drawing.Point(3, 3);
+			this.txtTextReport.Multiline = true;
+			this.txtTextReport.Name = "txtTextReport";
+			this.txtTextReport.ReadOnly = true;
+			this.txtTextReport.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.txtTextReport.Size = new System.Drawing.Size(650, 313);
+			this.txtTextReport.TabIndex = 0;
 			// 
 			// WeatherBriefingForm
 			// 
@@ -301,11 +327,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.pbxGafor)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
+			this.tabSWC.ResumeLayout(false);
+			this.pnlSWC.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pbxSWC)).EndInit();
 			this.ssMain.ResumeLayout(false);
 			this.ssMain.PerformLayout();
-			this.tabSWC.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pbxSWC)).EndInit();
-			this.pnlSWC.ResumeLayout(false);
+			this.tabTextReport.ResumeLayout(false);
+			this.tabTextReport.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -336,5 +364,7 @@
 		private System.Windows.Forms.TabPage tabSWC;
 		private System.Windows.Forms.PictureBox pbxSWC;
 		private System.Windows.Forms.Panel pnlSWC;
+		private System.Windows.Forms.TabPage tabTextReport;
+		private System.Windows.Forms.TextBox txtTextReport;
 	}
 }

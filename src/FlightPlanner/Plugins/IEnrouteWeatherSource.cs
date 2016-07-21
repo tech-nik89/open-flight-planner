@@ -16,5 +16,7 @@ namespace FlightPlanner.Plugins {
 
 		Image GetSignificantWeather(DateTime flightTime);
 
+		String GetTextReport();
+
 	}
 }

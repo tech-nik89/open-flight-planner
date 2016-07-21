@@ -61,6 +61,14 @@ namespace FlightPlanner.DwdLuftsportbericht {
 			return upperWind;
 		}
 
+		public String GetTextReport() {
+			if (!EnsureReport()) {
+				return null;
+			}
+
+			return _Report;
+		}
+
 		public void ShowConfiguration() {
 			throw new NotSupportedException();
 		}

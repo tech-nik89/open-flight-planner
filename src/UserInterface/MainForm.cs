@@ -106,6 +106,7 @@ namespace FlightPlanner.UserInterface {
         private void mnuRouteWaypointAddFree_Click(object sender, EventArgs e) {
             mapMain.AddWaypointMode = !mapMain.AddWaypointMode;
             mnuRouteWaypointAddFree.Checked = mapMain.AddWaypointMode;
+			tsbRouteAddFreeWaypoint.Checked = mapMain.AddWaypointMode;
         }
 
         private void mnuRouteWaypointAddKnown_Click(object sender, EventArgs e) {
@@ -380,6 +381,7 @@ namespace FlightPlanner.UserInterface {
 
 			if (!saveAs && !String.IsNullOrWhiteSpace(_ActivePlanPath) && File.Exists(_ActivePlanPath)) {
 				path = _ActivePlanPath;
+				sfdSave.FileName = path;
 			}
 			else { 
 				sfdSave.Filter = FlightPlan.Filter;

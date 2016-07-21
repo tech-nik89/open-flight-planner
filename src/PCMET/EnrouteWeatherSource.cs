@@ -98,6 +98,17 @@ namespace FlightPlanner.PCMET {
 		}
 
 		public Dictionary<Int32, Dictionary<Altitude, Wind>> GetUpperWind() {
+
+			String report = GetTextReport();
+			var dictionary = new Dictionary<Int32, Dictionary<Altitude, Wind>>();
+
+			UpperWindParser parser = new UpperWindParser(report);
+			parser.Parse(dictionary);
+
+			return dictionary;
+		}
+
+		public String GetTextReport() {
 			String gaforXml = Connection.DownloadGafor();
 			XmlDocument document = new XmlDocument();
 			document.LoadXml(gaforXml);
@@ -108,13 +119,8 @@ namespace FlightPlanner.PCMET {
 			foreach (XmlNode reportNode in reportNodes) {
 				report.AppendLine(reportNode.InnerText.Replace("\n", "\r\n"));
 			}
-
-			var dictionary = new Dictionary<Int32, Dictionary<Altitude, Wind>>();
-
-			UpperWindParser parser = new UpperWindParser(report.ToString());
-			parser.Parse(dictionary);
-
-			return dictionary;
+			
+			return report.ToString();
 		}
 
 		public void ShowConfiguration() {

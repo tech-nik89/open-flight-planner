@@ -19,6 +19,8 @@ namespace FlightPlanner.Briefing {
 
 		public Image SignificantWeather { get; private set; }
 
+		public String TextReport { get; private set; }
+
 		private WeatherBriefing() {
 		}
 
@@ -28,13 +30,18 @@ namespace FlightPlanner.Briefing {
 			IEnrouteWeatherSource enrouteWeatherSource = PluginManager.EnrouteWeatherSource;
 			IMetarWeatherSource metarSource = PluginManager.MetarWeatherSource;
 
-			if (enrouteWeatherSource == null || metarSource == null) {
+			if (enrouteWeatherSource == null) {
 				throw new PluginNotConfiguredException(typeof(IEnrouteWeatherSource));
+			}
+
+			if (metarSource == null) {
+				throw new PluginNotConfiguredException(typeof(IMetarWeatherSource));
 			}
 
 			weatherBriefing.MetarTaf = metarSource.RetrieveRouteWeatherInfo(flightPlan);
 			weatherBriefing.Gafor = enrouteWeatherSource.GetGafor();
 			weatherBriefing.UpperWind = enrouteWeatherSource.GetUpperWind();
+			weatherBriefing.TextReport = enrouteWeatherSource.GetTextReport();
 
 			try {
 				weatherBriefing.SignificantWeather = enrouteWeatherSource.GetSignificantWeather();

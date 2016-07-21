@@ -88,7 +88,6 @@ namespace FlightPlanner.MapControl {
 
 		private void MapControl_OnMapZoomChanged() {
 			Double zoom = Zoom;
-			lblZoom.Content = zoom;
 
 			if (zoom >= 8) {
 				foreach (GMapMarker waypoint in _WaypointMarkers) {
@@ -389,10 +388,10 @@ namespace FlightPlanner.MapControl {
 
 			switch (mode) {
 				case Mode.AddWaypoint:
-					message = "Click on the map to add a new waypoint.";
+					message = Strings.AddWaypointMessage;
 					break;
 				case Mode.MoveWaypoint:
-					message = "Click on the map to move the selected waypoint.";
+					message = Strings.MoveWaypointMessage;
 					break;
 			}
 
