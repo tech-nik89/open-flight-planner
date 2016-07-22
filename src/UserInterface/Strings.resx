@@ -570,4 +570,16 @@
   <data name="Airspaces" xml:space="preserve">
     <value>Airspaces</value>
   </data>
+  <data name="ExportOptions" xml:space="preserve">
+    <value>Export options</value>
+  </data>
+  <data name="FlightLog" xml:space="preserve">
+    <value>Flight log</value>
+  </data>
+  <data name="SignificantWeatherChart" xml:space="preserve">
+    <value>Significant weather chart</value>
+  </data>
+  <data name="WeatherTextReport" xml:space="preserve">
+    <value>Text weather report</value>
+  </data>
 </root>

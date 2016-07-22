@@ -367,6 +367,15 @@ namespace FlightPlanner.UserInterface {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Export options ähnelt.
+        /// </summary>
+        internal static string ExportOptions {
+            get {
+                return ResourceManager.GetString("ExportOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Extra fuel ähnelt.
         /// </summary>
         internal static string ExtraFuelMass {
@@ -399,6 +408,15 @@ namespace FlightPlanner.UserInterface {
         internal static string FinalReserveMass {
             get {
                 return ResourceManager.GetString("FinalReserveMass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Flight log ähnelt.
+        /// </summary>
+        internal static string FlightLog {
+            get {
+                return ResourceManager.GetString("FlightLog", resourceCulture);
             }
         }
         
@@ -1087,6 +1105,15 @@ namespace FlightPlanner.UserInterface {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Significant weather chart ähnelt.
+        /// </summary>
+        internal static string SignificantWeatherChart {
+            get {
+                return ResourceManager.GetString("SignificantWeatherChart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Startup and taxi ähnelt.
         /// </summary>
         internal static string StartupAndTaxiMass {
@@ -1344,6 +1371,15 @@ namespace FlightPlanner.UserInterface {
         internal static string WeatherSourceMetar {
             get {
                 return ResourceManager.GetString("WeatherSourceMetar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Text weather report ähnelt.
+        /// </summary>
+        internal static string WeatherTextReport {
+            get {
+                return ResourceManager.GetString("WeatherTextReport", resourceCulture);
             }
         }
         

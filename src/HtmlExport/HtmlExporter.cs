@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
+using FlightPlanner.Export;
 
 namespace HtmlExport {
 	public class HtmlExporter : IFlightLogExport {
@@ -46,6 +47,10 @@ namespace HtmlExport {
 		private static readonly Encoding _Encoding = Encoding.UTF8;
 
 		public void Export(FlightPlan flightPlan, String path) {
+			Export(flightPlan, path, new ExportOptions() { All = true });
+		}
+
+		public void Export(FlightPlan flightPlan, String path, ExportOptions options) {
 			UpdateStatus(0, "Preparing file ...");
 
 			StringBuilder document = CreateDocument();
@@ -62,18 +67,24 @@ namespace HtmlExport {
 			UpdateStatus(1, "Adding general information ...");
 
 			AddHeader(document, flightPlan);
-			AddLegs(document, flightPlan);
 
-			AddPageBreak(document);
+			if (options.FlightLog) {
+				AddLegs(document, flightPlan);
+				AddPageBreak(document);
+			}
 
 			UpdateStatus(2, "Adding weather information ...");
-			WeatherExporter.AddWeatherBriefing(document, flightPlan);
+			WeatherExporter.AddWeatherBriefing(document, flightPlan, options);
 			
 			UpdateStatus(3, "Adding mass and balance ...");
-			MassAndBalanceExporter.AddMassAndBalance(document, flightPlan);
-			
+			if (options.MassAndBalance) {
+				MassAndBalanceExporter.AddMassAndBalance(document, flightPlan);
+			}
+
 			UpdateStatus(4, "Adding NOTAMS ...");
-			NotamExporter.AddNotams(document, flightPlan);
+			if (options.Notams) {
+				NotamExporter.AddNotams(document, flightPlan);
+			}
 
 			document.AppendLine("</body>");
 			document.AppendLine("</html>");

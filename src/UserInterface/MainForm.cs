@@ -324,6 +324,15 @@ namespace FlightPlanner.UserInterface {
 				return;
 			}
 
+			ExportOptionsForm optionsForm = new ExportOptionsForm();
+			result = optionsForm.ShowDialog();
+
+			if (result != DialogResult.OK) {
+				return;
+			}
+
+			ExportOptions options = optionsForm.Options;
+
 			pgbProgress.Visible = true;
 			foreach (ToolStripItem child in mnuBriefingExport.DropDownItems) {
 				child.Enabled = false;
@@ -332,7 +341,7 @@ namespace FlightPlanner.UserInterface {
 			BackgroundWorker worker = new BackgroundWorker();
 
 			worker.DoWork += (s, args) => {
-				plugin.Export(ActiveFlightPlan, sfdSave.FileName);
+				plugin.Export(ActiveFlightPlan, sfdSave.FileName, options);
 			};
 
 			worker.RunWorkerCompleted += (s, args) => {

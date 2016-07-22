@@ -85,6 +85,7 @@
     <Compile Include="Configuration\Welt2kFile.cs" />
     <Compile Include="Exceptions\AircraftNotFoundException.cs" />
     <Compile Include="Exceptions\PluginNotConfiguredException.cs" />
+    <Compile Include="Export\ExportOptions.cs" />
     <Compile Include="Export\GPXExporter.cs" />
     <Compile Include="Export\KMLExporter.cs" />
     <Compile Include="Export\RouteExporter.cs" />

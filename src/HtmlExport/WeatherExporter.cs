@@ -1,4 +1,5 @@
 ﻿using FlightPlanner.Briefing;
+using FlightPlanner.Export;
 using FlightPlanner.Weather.Gafor;
 using FlightPlanner.Weather.MetarTaf;
 using Svg;
@@ -13,20 +14,29 @@ namespace HtmlExport {
 
 		private static readonly ImageFormat _ImageFormat = ImageFormat.Png;
 
-		public static void AddWeatherBriefing(StringBuilder document, FlightPlan flightPlan) {
+		public static void AddWeatherBriefing(StringBuilder document, FlightPlan flightPlan, ExportOptions options) {
 			try {
 				WeatherBriefing weather = WeatherBriefing.Create(flightPlan);
 
-				document.AppendLine("<h1>METAR / TAF</h1>");
+				if (options.Metar) {
+					document.AppendLine("<h1>METAR / TAF</h1>");
 
-				foreach (var item in weather.MetarTaf) {
-					AddMetarTaf(document, item);
+					foreach (var item in weather.MetarTaf) {
+						AddMetarTaf(document, item);
+					}
 				}
 
-				AddGafor(document, weather);
-				AddTextReport(document, weather);
+				if (options.Gafor) {
+					AddGafor(document, weather);
+				}
 
-				AddSignificantWeather(document, weather);
+				if (options.TextWeatherReport) {
+					AddTextReport(document, weather);
+				}
+
+				if (options.SignificantWeatherChart) {
+					AddSignificantWeather(document, weather);
+				}
 			}
 			catch (Exception e) {
 				document.Append("<p>Error: ");
