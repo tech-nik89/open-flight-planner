@@ -582,4 +582,22 @@
   <data name="WeatherTextReport" xml:space="preserve">
     <value>Text weather report</value>
   </data>
+  <data name="UnsavedChangesMessage" xml:space="preserve">
+    <value>The current flight plan has unsaved changes. Do you want to save it now?</value>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="ClimbPerformance" xml:space="preserve">
+    <value>Climb Performance</value>
+  </data>
+  <data name="ClimbRate" xml:space="preserve">
+    <value>Climb rate</value>
+  </data>
+  <data name="OpenAfterExport" xml:space="preserve">
+    <value>Open after export</value>
+  </data>
+  <data name="WaypointDetails" xml:space="preserve">
+    <value>Waypoint details</value>
+  </data>
 </root>

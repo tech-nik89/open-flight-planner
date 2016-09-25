@@ -118,7 +118,7 @@ namespace FlightPlanner.MapControl {
 				}
 			}
 		}
-
+		
 		public static List<String> AvailableProviders {
 			get {
 				List<String> list = new List<String>();

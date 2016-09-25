@@ -31,6 +31,9 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.gbxGeneral = new System.Windows.Forms.GroupBox();
 			this.txtType = new System.Windows.Forms.TextBox();
 			this.lblType = new System.Windows.Forms.Label();
@@ -53,13 +56,19 @@
 			this.clnMass = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clnForwardLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clnAftLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.tabPerformance = new System.Windows.Forms.TabPage();
-			this.dgvPerformance = new System.Windows.Forms.DataGridView();
-			this.clnAltitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clnTrueAirspeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clnFuelFlow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tabCruisePerformance = new System.Windows.Forms.TabPage();
+			this.dgvCruisePerformance = new System.Windows.Forms.DataGridView();
+			this.clnCruisePerformanceAltitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clnCruisePerformanceTrueAirspeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clnCruisePerformanceFuelFlow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.tabClimbPerformance = new System.Windows.Forms.TabPage();
+			this.dgvClimbPerformance = new System.Windows.Forms.DataGridView();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnAccept = new System.Windows.Forms.Button();
+			this.clnClimbPerformanceAltitude = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clnClimbPerformanceTrueAirspeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clnClimbPerformanceFuelFlow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.clnClimbPerformanceRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.gbxGeneral.SuspendLayout();
 			this.tabCtrl.SuspendLayout();
 			this.tabProperties.SuspendLayout();
@@ -69,8 +78,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvFuelTanks)).BeginInit();
 			this.tabCenterOfGravity.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCenterOfGravity)).BeginInit();
-			this.tabPerformance.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvPerformance)).BeginInit();
+			this.tabCruisePerformance.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvCruisePerformance)).BeginInit();
+			this.tabClimbPerformance.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvClimbPerformance)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// gbxGeneral
@@ -83,7 +94,7 @@
 			this.gbxGeneral.Controls.Add(this.lblRegistration);
 			this.gbxGeneral.Location = new System.Drawing.Point(12, 12);
 			this.gbxGeneral.Name = "gbxGeneral";
-			this.gbxGeneral.Size = new System.Drawing.Size(511, 88);
+			this.gbxGeneral.Size = new System.Drawing.Size(596, 88);
 			this.gbxGeneral.TabIndex = 0;
 			this.gbxGeneral.TabStop = false;
 			this.gbxGeneral.Text = "General";
@@ -94,7 +105,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtType.Location = new System.Drawing.Point(92, 51);
 			this.txtType.Name = "txtType";
-			this.txtType.Size = new System.Drawing.Size(393, 20);
+			this.txtType.Size = new System.Drawing.Size(478, 20);
 			this.txtType.TabIndex = 3;
 			// 
 			// lblType
@@ -112,7 +123,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtRegistration.Location = new System.Drawing.Point(92, 25);
 			this.txtRegistration.Name = "txtRegistration";
-			this.txtRegistration.Size = new System.Drawing.Size(393, 20);
+			this.txtRegistration.Size = new System.Drawing.Size(478, 20);
 			this.txtRegistration.TabIndex = 1;
 			// 
 			// lblRegistration
@@ -133,11 +144,12 @@
 			this.tabCtrl.Controls.Add(this.tabStations);
 			this.tabCtrl.Controls.Add(this.tabFuelTanks);
 			this.tabCtrl.Controls.Add(this.tabCenterOfGravity);
-			this.tabCtrl.Controls.Add(this.tabPerformance);
+			this.tabCtrl.Controls.Add(this.tabCruisePerformance);
+			this.tabCtrl.Controls.Add(this.tabClimbPerformance);
 			this.tabCtrl.Location = new System.Drawing.Point(12, 106);
 			this.tabCtrl.Name = "tabCtrl";
 			this.tabCtrl.SelectedIndex = 0;
-			this.tabCtrl.Size = new System.Drawing.Size(511, 284);
+			this.tabCtrl.Size = new System.Drawing.Size(596, 284);
 			this.tabCtrl.TabIndex = 1;
 			// 
 			// tabProperties
@@ -146,7 +158,7 @@
 			this.tabProperties.Location = new System.Drawing.Point(4, 22);
 			this.tabProperties.Name = "tabProperties";
 			this.tabProperties.Padding = new System.Windows.Forms.Padding(3);
-			this.tabProperties.Size = new System.Drawing.Size(503, 258);
+			this.tabProperties.Size = new System.Drawing.Size(588, 258);
 			this.tabProperties.TabIndex = 0;
 			this.tabProperties.Text = "Properties";
 			this.tabProperties.UseVisualStyleBackColor = true;
@@ -157,7 +169,7 @@
 			this.pgProperties.HelpVisible = false;
 			this.pgProperties.Location = new System.Drawing.Point(3, 3);
 			this.pgProperties.Name = "pgProperties";
-			this.pgProperties.Size = new System.Drawing.Size(497, 252);
+			this.pgProperties.Size = new System.Drawing.Size(582, 252);
 			this.pgProperties.TabIndex = 1;
 			this.pgProperties.ToolbarVisible = false;
 			// 
@@ -167,7 +179,7 @@
 			this.tabStations.Location = new System.Drawing.Point(4, 22);
 			this.tabStations.Name = "tabStations";
 			this.tabStations.Padding = new System.Windows.Forms.Padding(3);
-			this.tabStations.Size = new System.Drawing.Size(558, 221);
+			this.tabStations.Size = new System.Drawing.Size(588, 258);
 			this.tabStations.TabIndex = 1;
 			this.tabStations.Text = "Loading Stations";
 			this.tabStations.UseVisualStyleBackColor = true;
@@ -188,7 +200,7 @@
 			this.dgvStations.Name = "dgvStations";
 			this.dgvStations.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.dgvStations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvStations.Size = new System.Drawing.Size(552, 215);
+			this.dgvStations.Size = new System.Drawing.Size(582, 252);
 			this.dgvStations.TabIndex = 0;
 			// 
 			// clnStationName
@@ -216,7 +228,7 @@
 			this.tabFuelTanks.Location = new System.Drawing.Point(4, 22);
 			this.tabFuelTanks.Name = "tabFuelTanks";
 			this.tabFuelTanks.Padding = new System.Windows.Forms.Padding(3);
-			this.tabFuelTanks.Size = new System.Drawing.Size(558, 221);
+			this.tabFuelTanks.Size = new System.Drawing.Size(588, 258);
 			this.tabFuelTanks.TabIndex = 2;
 			this.tabFuelTanks.Text = "Fuel Tanks";
 			this.tabFuelTanks.UseVisualStyleBackColor = true;
@@ -238,7 +250,7 @@
 			this.dgvFuelTanks.Name = "dgvFuelTanks";
 			this.dgvFuelTanks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.dgvFuelTanks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvFuelTanks.Size = new System.Drawing.Size(552, 215);
+			this.dgvFuelTanks.Size = new System.Drawing.Size(582, 252);
 			this.dgvFuelTanks.TabIndex = 1;
 			// 
 			// clnFuelTankName
@@ -276,7 +288,7 @@
 			this.tabCenterOfGravity.Location = new System.Drawing.Point(4, 22);
 			this.tabCenterOfGravity.Name = "tabCenterOfGravity";
 			this.tabCenterOfGravity.Padding = new System.Windows.Forms.Padding(3);
-			this.tabCenterOfGravity.Size = new System.Drawing.Size(558, 221);
+			this.tabCenterOfGravity.Size = new System.Drawing.Size(588, 258);
 			this.tabCenterOfGravity.TabIndex = 3;
 			this.tabCenterOfGravity.Text = "Center Of Gravity";
 			this.tabCenterOfGravity.UseVisualStyleBackColor = true;
@@ -298,7 +310,7 @@
 			this.dgvCenterOfGravity.Name = "dgvCenterOfGravity";
 			this.dgvCenterOfGravity.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.dgvCenterOfGravity.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvCenterOfGravity.Size = new System.Drawing.Size(552, 215);
+			this.dgvCenterOfGravity.Size = new System.Drawing.Size(582, 252);
 			this.dgvCenterOfGravity.TabIndex = 2;
 			// 
 			// clnMass
@@ -331,71 +343,103 @@
 			this.clnAftLimit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.clnAftLimit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
-			// tabPerformance
+			// tabCruisePerformance
 			// 
-			this.tabPerformance.Controls.Add(this.dgvPerformance);
-			this.tabPerformance.Location = new System.Drawing.Point(4, 22);
-			this.tabPerformance.Name = "tabPerformance";
-			this.tabPerformance.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPerformance.Size = new System.Drawing.Size(558, 221);
-			this.tabPerformance.TabIndex = 4;
-			this.tabPerformance.Text = "Cruise Performance";
-			this.tabPerformance.UseVisualStyleBackColor = true;
+			this.tabCruisePerformance.Controls.Add(this.dgvCruisePerformance);
+			this.tabCruisePerformance.Location = new System.Drawing.Point(4, 22);
+			this.tabCruisePerformance.Name = "tabCruisePerformance";
+			this.tabCruisePerformance.Padding = new System.Windows.Forms.Padding(3);
+			this.tabCruisePerformance.Size = new System.Drawing.Size(588, 258);
+			this.tabCruisePerformance.TabIndex = 4;
+			this.tabCruisePerformance.Text = "Cruise Performance";
+			this.tabCruisePerformance.UseVisualStyleBackColor = true;
 			// 
-			// dgvPerformance
+			// dgvCruisePerformance
 			// 
-			this.dgvPerformance.AllowUserToOrderColumns = true;
-			this.dgvPerformance.AllowUserToResizeColumns = false;
-			this.dgvPerformance.AllowUserToResizeRows = false;
-			this.dgvPerformance.BackgroundColor = System.Drawing.Color.White;
-			this.dgvPerformance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvPerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clnAltitude,
-            this.clnTrueAirspeed,
-            this.clnFuelFlow});
-			this.dgvPerformance.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvPerformance.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-			this.dgvPerformance.Location = new System.Drawing.Point(3, 3);
-			this.dgvPerformance.Name = "dgvPerformance";
-			this.dgvPerformance.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.dgvPerformance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvPerformance.Size = new System.Drawing.Size(552, 215);
-			this.dgvPerformance.TabIndex = 3;
+			this.dgvCruisePerformance.AllowUserToOrderColumns = true;
+			this.dgvCruisePerformance.AllowUserToResizeColumns = false;
+			this.dgvCruisePerformance.AllowUserToResizeRows = false;
+			this.dgvCruisePerformance.BackgroundColor = System.Drawing.Color.White;
+			this.dgvCruisePerformance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvCruisePerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnCruisePerformanceAltitude,
+            this.clnCruisePerformanceTrueAirspeed,
+            this.clnCruisePerformanceFuelFlow});
+			this.dgvCruisePerformance.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvCruisePerformance.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+			this.dgvCruisePerformance.Location = new System.Drawing.Point(3, 3);
+			this.dgvCruisePerformance.Name = "dgvCruisePerformance";
+			this.dgvCruisePerformance.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.dgvCruisePerformance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvCruisePerformance.Size = new System.Drawing.Size(582, 252);
+			this.dgvCruisePerformance.TabIndex = 3;
 			// 
-			// clnAltitude
+			// clnCruisePerformanceAltitude
 			// 
-			this.clnAltitude.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.clnCruisePerformanceAltitude.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			dataGridViewCellStyle6.Format = "N0";
 			dataGridViewCellStyle6.NullValue = null;
-			this.clnAltitude.DefaultCellStyle = dataGridViewCellStyle6;
-			this.clnAltitude.HeaderText = "Pressure Altitude";
-			this.clnAltitude.Name = "clnAltitude";
-			this.clnAltitude.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.clnAltitude.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.clnCruisePerformanceAltitude.DefaultCellStyle = dataGridViewCellStyle6;
+			this.clnCruisePerformanceAltitude.HeaderText = "Pressure Altitude";
+			this.clnCruisePerformanceAltitude.Name = "clnCruisePerformanceAltitude";
+			this.clnCruisePerformanceAltitude.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.clnCruisePerformanceAltitude.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
-			// clnTrueAirspeed
+			// clnCruisePerformanceTrueAirspeed
 			// 
-			this.clnTrueAirspeed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.clnCruisePerformanceTrueAirspeed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			dataGridViewCellStyle7.Format = "N0";
 			dataGridViewCellStyle7.NullValue = null;
-			this.clnTrueAirspeed.DefaultCellStyle = dataGridViewCellStyle7;
-			this.clnTrueAirspeed.HeaderText = "TAS";
-			this.clnTrueAirspeed.Name = "clnTrueAirspeed";
+			this.clnCruisePerformanceTrueAirspeed.DefaultCellStyle = dataGridViewCellStyle7;
+			this.clnCruisePerformanceTrueAirspeed.HeaderText = "TAS";
+			this.clnCruisePerformanceTrueAirspeed.Name = "clnCruisePerformanceTrueAirspeed";
 			// 
-			// clnFuelFlow
+			// clnCruisePerformanceFuelFlow
 			// 
-			this.clnFuelFlow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.clnCruisePerformanceFuelFlow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
 			dataGridViewCellStyle8.Format = "N1";
 			dataGridViewCellStyle8.NullValue = null;
-			this.clnFuelFlow.DefaultCellStyle = dataGridViewCellStyle8;
-			this.clnFuelFlow.HeaderText = "Fuel Flow";
-			this.clnFuelFlow.Name = "clnFuelFlow";
+			this.clnCruisePerformanceFuelFlow.DefaultCellStyle = dataGridViewCellStyle8;
+			this.clnCruisePerformanceFuelFlow.HeaderText = "Fuel Flow";
+			this.clnCruisePerformanceFuelFlow.Name = "clnCruisePerformanceFuelFlow";
+			// 
+			// tabClimbPerformance
+			// 
+			this.tabClimbPerformance.Controls.Add(this.dgvClimbPerformance);
+			this.tabClimbPerformance.Location = new System.Drawing.Point(4, 22);
+			this.tabClimbPerformance.Name = "tabClimbPerformance";
+			this.tabClimbPerformance.Padding = new System.Windows.Forms.Padding(3);
+			this.tabClimbPerformance.Size = new System.Drawing.Size(588, 258);
+			this.tabClimbPerformance.TabIndex = 5;
+			this.tabClimbPerformance.Text = "Climb Performance";
+			this.tabClimbPerformance.UseVisualStyleBackColor = true;
+			// 
+			// dgvClimbPerformance
+			// 
+			this.dgvClimbPerformance.AllowUserToOrderColumns = true;
+			this.dgvClimbPerformance.AllowUserToResizeColumns = false;
+			this.dgvClimbPerformance.AllowUserToResizeRows = false;
+			this.dgvClimbPerformance.BackgroundColor = System.Drawing.Color.White;
+			this.dgvClimbPerformance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvClimbPerformance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clnClimbPerformanceAltitude,
+            this.clnClimbPerformanceTrueAirspeed,
+            this.clnClimbPerformanceFuelFlow,
+            this.clnClimbPerformanceRate});
+			this.dgvClimbPerformance.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvClimbPerformance.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+			this.dgvClimbPerformance.Location = new System.Drawing.Point(3, 3);
+			this.dgvClimbPerformance.Name = "dgvClimbPerformance";
+			this.dgvClimbPerformance.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.dgvClimbPerformance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvClimbPerformance.Size = new System.Drawing.Size(582, 252);
+			this.dgvClimbPerformance.TabIndex = 4;
 			// 
 			// btnCancel
 			// 
 			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(423, 396);
+			this.btnCancel.Location = new System.Drawing.Point(508, 396);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(100, 25);
 			this.btnCancel.TabIndex = 2;
@@ -407,7 +451,7 @@
 			// 
 			this.btnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnAccept.Location = new System.Drawing.Point(317, 396);
+			this.btnAccept.Location = new System.Drawing.Point(402, 396);
 			this.btnAccept.Name = "btnAccept";
 			this.btnAccept.Size = new System.Drawing.Size(100, 25);
 			this.btnAccept.TabIndex = 3;
@@ -415,13 +459,47 @@
 			this.btnAccept.UseVisualStyleBackColor = true;
 			this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
 			// 
+			// clnClimbPerformanceAltitude
+			// 
+			this.clnClimbPerformanceAltitude.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle9.Format = "N0";
+			dataGridViewCellStyle9.NullValue = null;
+			this.clnClimbPerformanceAltitude.DefaultCellStyle = dataGridViewCellStyle9;
+			this.clnClimbPerformanceAltitude.HeaderText = "Pressure Altitude";
+			this.clnClimbPerformanceAltitude.Name = "clnClimbPerformanceAltitude";
+			this.clnClimbPerformanceAltitude.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.clnClimbPerformanceAltitude.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// clnClimbPerformanceTrueAirspeed
+			// 
+			this.clnClimbPerformanceTrueAirspeed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle10.Format = "N0";
+			dataGridViewCellStyle10.NullValue = null;
+			this.clnClimbPerformanceTrueAirspeed.DefaultCellStyle = dataGridViewCellStyle10;
+			this.clnClimbPerformanceTrueAirspeed.HeaderText = "TAS";
+			this.clnClimbPerformanceTrueAirspeed.Name = "clnClimbPerformanceTrueAirspeed";
+			// 
+			// clnClimbPerformanceFuelFlow
+			// 
+			this.clnClimbPerformanceFuelFlow.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			dataGridViewCellStyle11.Format = "N1";
+			dataGridViewCellStyle11.NullValue = null;
+			this.clnClimbPerformanceFuelFlow.DefaultCellStyle = dataGridViewCellStyle11;
+			this.clnClimbPerformanceFuelFlow.HeaderText = "Fuel Flow";
+			this.clnClimbPerformanceFuelFlow.Name = "clnClimbPerformanceFuelFlow";
+			// 
+			// clnClimbPerformanceRate
+			// 
+			this.clnClimbPerformanceRate.HeaderText = "Climb rate";
+			this.clnClimbPerformanceRate.Name = "clnClimbPerformanceRate";
+			// 
 			// AircraftForm
 			// 
 			this.AcceptButton = this.btnAccept;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(535, 433);
+			this.ClientSize = new System.Drawing.Size(620, 433);
 			this.Controls.Add(this.btnAccept);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.tabCtrl);
@@ -440,8 +518,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvFuelTanks)).EndInit();
 			this.tabCenterOfGravity.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvCenterOfGravity)).EndInit();
-			this.tabPerformance.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgvPerformance)).EndInit();
+			this.tabCruisePerformance.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dgvCruisePerformance)).EndInit();
+			this.tabClimbPerformance.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dgvClimbPerformance)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -464,8 +544,8 @@
         private System.Windows.Forms.DataGridView dgvFuelTanks;
         private System.Windows.Forms.TabPage tabCenterOfGravity;
         private System.Windows.Forms.DataGridView dgvCenterOfGravity;
-        private System.Windows.Forms.TabPage tabPerformance;
-        private System.Windows.Forms.DataGridView dgvPerformance;
+        private System.Windows.Forms.TabPage tabCruisePerformance;
+        private System.Windows.Forms.DataGridView dgvCruisePerformance;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnStationName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnStationArm;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnFuelTankName;
@@ -474,8 +554,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clnMass;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnForwardLimit;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnAftLimit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnAltitude;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnTrueAirspeed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clnFuelFlow;
-    }
+		private System.Windows.Forms.TabPage tabClimbPerformance;
+		private System.Windows.Forms.DataGridView dgvClimbPerformance;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clnCruisePerformanceAltitude;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clnCruisePerformanceTrueAirspeed;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clnCruisePerformanceFuelFlow;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clnClimbPerformanceAltitude;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clnClimbPerformanceTrueAirspeed;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clnClimbPerformanceFuelFlow;
+		private System.Windows.Forms.DataGridViewTextBoxColumn clnClimbPerformanceRate;
+	}
 }

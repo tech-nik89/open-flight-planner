@@ -77,6 +77,32 @@ namespace FlightPlanner.Waypoints {
 			}
 		}
 
+		public Boolean IsClimb {
+			get {
+				if (_ClimbFromAltitude == null) {
+					return false;
+				}
+
+				if (_ClimbFromAltitude.Feet >= _Altitude.Feet) {
+					return false;
+				}
+
+				return true;
+			}
+		}
+
+		private Altitude _ClimbFromAltitude;
+
+		public Altitude ClimbFromAltitude {
+			get {
+				return _ClimbFromAltitude;
+			}
+			set {
+				_ClimbFromAltitude = value;
+				_Performance = null;
+			}
+		}
+
 		private Wind _Wind;
 
 		public Wind Wind {
@@ -133,6 +159,7 @@ namespace FlightPlanner.Waypoints {
 		}
 
 		private Performance _Performance;
+		private Performance _ClimbPerformance;
 		private Aircraft _Aircraft;
 
 		public Performance Performance {
@@ -141,13 +168,40 @@ namespace FlightPlanner.Waypoints {
 					_Aircraft = _Route.FlightPlan.Aircraft;
 					_Performance = _Aircraft.GetCruisePerformanceAt(Altitude);
 				}
-
+				
 				return _Performance;
+			}
+		}
+
+		public Performance ClimbPerformance {
+			get {
+				if (!IsClimb) {
+					return null;
+				}
+
+				if (_ClimbPerformance == null || _Aircraft == null || _Aircraft != _Route.FlightPlan.Aircraft) {
+					_Aircraft = _Route.FlightPlan.Aircraft;
+					_ClimbPerformance = _Aircraft.GetCruisePerformanceAt(Altitude);
+				}
+
+				return _ClimbPerformance;
 			}
 		}
 
 		public Airspeed TrueAirspeed {
 			get {
+				if (IsClimb) {
+					Performance climbPerformance = ClimbPerformance;
+
+					Int32 climb = Math.Abs(Altitude.Feet - ClimbFromAltitude.Feet);
+					TimeSpan time = TimeSpan.FromMinutes(climb / climbPerformance.Rate);
+
+					Double climbDistance = climbPerformance.Airspeed.Knots * time.TotalHours;
+					Double cruiseDistance = Distance.NauticalMiles - climbDistance;
+
+
+				}
+				
 				Performance performance = Performance;
 
 				if (performance == null) {

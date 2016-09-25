@@ -167,6 +167,12 @@
     <Compile Include="Dialogs\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\WaypointDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\WaypointDetailsForm.Designer.cs">
+      <DependentUpon>WaypointDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\WaypointForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\WaypointDetailsForm.resx">
+      <DependentUpon>WaypointDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\WaypointForm.resx">
       <DependentUpon>WaypointForm.cs</DependentUpon>

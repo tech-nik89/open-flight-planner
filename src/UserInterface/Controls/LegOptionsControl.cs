@@ -57,6 +57,7 @@ namespace FlightPlanner.UserInterface.Controls {
 
             wcLeg.Wind = _Leg.Wind;
             txtAltitude.Text = _Leg.Altitude.ToString();
+			txtClimbFrom.Text = _Leg.ClimbFromAltitude != null ? _Leg.ClimbFromAltitude.ToString() : String.Empty;
 
 			cbxGaforArea.Text = _Leg.GaforArea.ToString("00");
         }
@@ -91,6 +92,16 @@ namespace FlightPlanner.UserInterface.Controls {
 			if (e.KeyCode == Keys.Enter) {
 				cbxGaforArea_SelectedIndexChanged(this, new EventArgs());
 			}
+		}
+
+		private void txtClimbFrom_KeyUp(object sender, KeyEventArgs e) {
+			if (e.KeyCode != Keys.Enter) {
+				return;
+			}
+
+			e.Handled = true;
+			_Leg.ClimbFromAltitude = Altitude.Parse(txtClimbFrom.Text);
+			ApplyLeg();
 		}
 	}
 }

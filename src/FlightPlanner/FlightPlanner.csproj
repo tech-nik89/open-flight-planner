@@ -71,6 +71,9 @@
     <Compile Include="Airspaces\Segments\CircleByRadiusAirspaceSegment.cs" />
     <Compile Include="Airspaces\Segments\PolygonAirspaceSegment.cs" />
     <Compile Include="Briefing\FlightPlan.cs" />
+    <Compile Include="Briefing\FuelTanks.cs" />
+    <Compile Include="Briefing\GenericLoading.cs" />
+    <Compile Include="Briefing\Loading.cs" />
     <Compile Include="Briefing\MassAndBalance.cs" />
     <Compile Include="Briefing\MassAndBalanceItem.cs" />
     <Compile Include="Briefing\WeatherBriefing.cs" />

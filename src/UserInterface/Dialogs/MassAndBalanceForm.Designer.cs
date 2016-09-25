@@ -31,13 +31,13 @@
 			this.clnLeverArm = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clnMass = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clnFuelTankSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.crtCenterOfGravity = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.crtCenterOfGravity = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabMass = new System.Windows.Forms.TabPage();
 			this.lvwMass = new System.Windows.Forms.ListView();
 			this.clnFuelKey = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.clnFuelValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabMass = new System.Windows.Forms.TabPage();
 			this.tabFuel = new System.Windows.Forms.TabPage();
 			this.lvwFuel = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -47,11 +47,11 @@
 			this.scMain.Panel2.SuspendLayout();
 			this.scMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStations)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.crtCenterOfGravity)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.crtCenterOfGravity)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabMass.SuspendLayout();
 			this.tabFuel.SuspendLayout();
@@ -135,6 +135,24 @@
 			this.clnFuelTankSize.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.clnFuelTankSize.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer1.Name = "splitContainer1";
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.crtCenterOfGravity);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+			this.splitContainer1.Size = new System.Drawing.Size(656, 244);
+			this.splitContainer1.SplitterDistance = 377;
+			this.splitContainer1.TabIndex = 1;
+			// 
 			// crtCenterOfGravity
 			// 
 			chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
@@ -166,23 +184,27 @@
 			this.crtCenterOfGravity.TabIndex = 0;
 			this.crtCenterOfGravity.Text = "chart1";
 			// 
-			// splitContainer1
+			// tabControl1
 			// 
-			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-			this.splitContainer1.Name = "splitContainer1";
+			this.tabControl1.Controls.Add(this.tabMass);
+			this.tabControl1.Controls.Add(this.tabFuel);
+			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl1.Location = new System.Drawing.Point(0, 0);
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
+			this.tabControl1.Size = new System.Drawing.Size(275, 244);
+			this.tabControl1.TabIndex = 1;
 			// 
-			// splitContainer1.Panel1
+			// tabMass
 			// 
-			this.splitContainer1.Panel1.Controls.Add(this.crtCenterOfGravity);
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-			this.splitContainer1.Size = new System.Drawing.Size(656, 244);
-			this.splitContainer1.SplitterDistance = 377;
-			this.splitContainer1.TabIndex = 1;
+			this.tabMass.Controls.Add(this.lvwMass);
+			this.tabMass.Location = new System.Drawing.Point(4, 22);
+			this.tabMass.Name = "tabMass";
+			this.tabMass.Padding = new System.Windows.Forms.Padding(3);
+			this.tabMass.Size = new System.Drawing.Size(267, 218);
+			this.tabMass.TabIndex = 0;
+			this.tabMass.Text = "Mass";
+			this.tabMass.UseVisualStyleBackColor = true;
 			// 
 			// lvwMass
 			// 
@@ -207,28 +229,6 @@
 			// clnFuelValue
 			// 
 			this.clnFuelValue.Width = 120;
-			// 
-			// tabControl1
-			// 
-			this.tabControl1.Controls.Add(this.tabMass);
-			this.tabControl1.Controls.Add(this.tabFuel);
-			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(0, 0);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(275, 244);
-			this.tabControl1.TabIndex = 1;
-			// 
-			// tabMass
-			// 
-			this.tabMass.Controls.Add(this.lvwMass);
-			this.tabMass.Location = new System.Drawing.Point(4, 22);
-			this.tabMass.Name = "tabMass";
-			this.tabMass.Padding = new System.Windows.Forms.Padding(3);
-			this.tabMass.Size = new System.Drawing.Size(267, 218);
-			this.tabMass.TabIndex = 0;
-			this.tabMass.Text = "Mass";
-			this.tabMass.UseVisualStyleBackColor = true;
 			// 
 			// tabFuel
 			// 
@@ -281,11 +281,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
 			this.scMain.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvStations)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.crtCenterOfGravity)).EndInit();
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.crtCenterOfGravity)).EndInit();
 			this.tabControl1.ResumeLayout(false);
 			this.tabMass.ResumeLayout(false);
 			this.tabFuel.ResumeLayout(false);

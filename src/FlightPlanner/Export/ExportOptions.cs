@@ -39,5 +39,7 @@ namespace FlightPlanner.Export {
 
 		public Boolean Notams { get; set; }
 		
+		public Boolean OpenAfterExport { get; set; }
+
 	}
 }

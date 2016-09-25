@@ -25,6 +25,7 @@
         private void InitializeComponent() {
 			FlightPlanner.Common.Wind wind2 = new FlightPlanner.Common.Wind();
 			this.gbxWind = new System.Windows.Forms.GroupBox();
+			this.wcWind = new FlightPlanner.UserInterface.Controls.WindControl();
 			this.chkWind = new System.Windows.Forms.CheckBox();
 			this.gbxAltitude = new System.Windows.Forms.GroupBox();
 			this.txtAltitude = new System.Windows.Forms.TextBox();
@@ -32,9 +33,8 @@
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnAccept = new System.Windows.Forms.Button();
 			this.gbxGafor = new System.Windows.Forms.GroupBox();
-			this.cbxGaforArea = new System.Windows.Forms.ComboBox();
 			this.chkGaforArea = new System.Windows.Forms.CheckBox();
-			this.wcWind = new FlightPlanner.UserInterface.Controls.WindControl();
+			this.cbxGaforArea = new System.Windows.Forms.ComboBox();
 			this.gbxWind.SuspendLayout();
 			this.gbxAltitude.SuspendLayout();
 			this.gbxGafor.SuspendLayout();
@@ -51,6 +51,21 @@
 			this.gbxWind.Size = new System.Drawing.Size(317, 64);
 			this.gbxWind.TabIndex = 0;
 			this.gbxWind.TabStop = false;
+			// 
+			// wcWind
+			// 
+			this.wcWind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.wcWind.Location = new System.Drawing.Point(16, 23);
+			this.wcWind.Name = "wcWind";
+			this.wcWind.Size = new System.Drawing.Size(282, 27);
+			this.wcWind.TabIndex = 2;
+			wind2.Direction = 0;
+			wind2.GustSpeed = 0;
+			wind2.Speed = 0;
+			wind2.Variable = false;
+			this.wcWind.Wind = wind2;
+			this.wcWind.WindChanged += new System.EventHandler(this.wcWind_WindChanged);
 			// 
 			// chkWind
 			// 
@@ -83,6 +98,7 @@
 			this.txtAltitude.Size = new System.Drawing.Size(282, 20);
 			this.txtAltitude.TabIndex = 1;
 			this.txtAltitude.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAltitude_KeyDown);
+			this.txtAltitude.Leave += new System.EventHandler(this.txtAltitude_Leave);
 			// 
 			// chkAltitude
 			// 
@@ -129,6 +145,16 @@
 			this.gbxGafor.TabIndex = 4;
 			this.gbxGafor.TabStop = false;
 			// 
+			// chkGaforArea
+			// 
+			this.chkGaforArea.AutoSize = true;
+			this.chkGaforArea.Location = new System.Drawing.Point(16, 0);
+			this.chkGaforArea.Name = "chkGaforArea";
+			this.chkGaforArea.Size = new System.Drawing.Size(88, 17);
+			this.chkGaforArea.TabIndex = 5;
+			this.chkGaforArea.Text = "GAFOR Area";
+			this.chkGaforArea.UseVisualStyleBackColor = true;
+			// 
 			// cbxGaforArea
 			// 
 			this.cbxGaforArea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -140,30 +166,6 @@
 			this.cbxGaforArea.TabIndex = 0;
 			this.cbxGaforArea.SelectedIndexChanged += new System.EventHandler(this.cbxGaforArea_SelectedIndexChanged);
 			this.cbxGaforArea.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbxGaforArea_KeyUp);
-			// 
-			// chkGaforArea
-			// 
-			this.chkGaforArea.AutoSize = true;
-			this.chkGaforArea.Location = new System.Drawing.Point(16, 0);
-			this.chkGaforArea.Name = "chkGaforArea";
-			this.chkGaforArea.Size = new System.Drawing.Size(88, 17);
-			this.chkGaforArea.TabIndex = 5;
-			this.chkGaforArea.Text = "GAFOR Area";
-			this.chkGaforArea.UseVisualStyleBackColor = true;
-			// 
-			// wcWind
-			// 
-			this.wcWind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.wcWind.Location = new System.Drawing.Point(16, 23);
-			this.wcWind.Name = "wcWind";
-			this.wcWind.Size = new System.Drawing.Size(282, 27);
-			this.wcWind.TabIndex = 2;
-			wind2.Direction = 0;
-			wind2.GustSpeed = 0;
-			wind2.Speed = 0;
-			this.wcWind.Wind = wind2;
-			this.wcWind.WindChanged += new System.EventHandler(this.wcWind_WindChanged);
 			// 
 			// RouteGlobalSettingsForm
 			// 

@@ -31,6 +31,10 @@ namespace FlightPlanner.UserInterface {
 			mnuRouteGlobalSettings.Text = Strings.RouteGlobalSettings;
 			mnuRouteUpperWind.Text = Strings.RouteUpperWind;
 			mnuRouteExport.Text = Strings.Export;
+			mnuRouteWaypointDetails.Text = Strings.WaypointDetails;
+
+			cmsWaypointDetails.Text = Strings.WaypointDetails;
+			cmsWaypointCenter.Text = Strings.Center;
 
 			mnuAircraft.Text = Strings.Aircraft;
 			mnuAircraftManage.Text = Strings.AircraftsManage;

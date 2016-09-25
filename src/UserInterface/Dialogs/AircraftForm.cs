@@ -44,7 +44,8 @@ namespace FlightPlanner.UserInterface.Dialogs {
 			tabStations.Text = Strings.LoadingStations;
 			tabFuelTanks.Text = Strings.FuelTanks;
 			tabCenterOfGravity.Text = Strings.CenterOfGravity;
-			tabPerformance.Text = Strings.CruisePerformance;
+			tabCruisePerformance.Text = Strings.CruisePerformance;
+			tabClimbPerformance.Text = Strings.ClimbPerformance;
 
 			clnStationName.HeaderText = Strings.Name;
 			clnStationArm.HeaderText = Strings.LeverArm;
@@ -57,9 +58,13 @@ namespace FlightPlanner.UserInterface.Dialogs {
 			clnForwardLimit.HeaderText = Strings.ForwardLimit;
 			clnAftLimit.HeaderText = Strings.AftLimit;
 
-			clnAltitude.HeaderText = Strings.PressureAltitude;
-			clnTrueAirspeed.HeaderText = Strings.TrueAirspeed;
-			clnFuelFlow.HeaderText = Strings.FuelFlow;
+			clnCruisePerformanceAltitude.HeaderText = Strings.PressureAltitude;
+			clnCruisePerformanceTrueAirspeed.HeaderText = Strings.TrueAirspeed;
+			clnCruisePerformanceFuelFlow.HeaderText = Strings.FuelFlow;
+
+			clnClimbPerformanceAltitude.HeaderText = Strings.PressureAltitude;
+			clnClimbPerformanceTrueAirspeed.HeaderText = Strings.TrueAirspeed;
+			clnClimbPerformanceFuelFlow.HeaderText = Strings.FuelFlow;
 		}
 
         private void ApplyAircraftToFields() {
@@ -88,14 +93,27 @@ namespace FlightPlanner.UserInterface.Dialogs {
                 dgvCenterOfGravity.Rows.Add(limit.Mass, limit.ForwardLimit, limit.AftLimit);
             }
 
-            dgvPerformance.Rows.Clear();
-            foreach (Performance performance in _Aircraft.CruisePerformance) {
-                dgvPerformance.Rows.Add(
-					performance.PressureAltitude != null ? performance.PressureAltitude.Feet : -1,
-					performance.Airspeed != null ? performance.Airspeed.Knots : -1,
-					performance.FuelFlow);
-            }
-        }
+            dgvCruisePerformance.Rows.Clear();
+			if (_Aircraft.CruisePerformance != null) {
+				foreach (Performance performance in _Aircraft.CruisePerformance) {
+					dgvCruisePerformance.Rows.Add(
+						performance.PressureAltitude != null ? performance.PressureAltitude.Feet : -1,
+						performance.Airspeed != null ? performance.Airspeed.Knots : -1,
+						performance.FuelFlow);
+				}
+			}
+
+			dgvClimbPerformance.Rows.Clear();
+			if (_Aircraft.ClimbPerformance != null) {
+				foreach (Performance performance in _Aircraft.ClimbPerformance) {
+					dgvClimbPerformance.Rows.Add(
+						performance.PressureAltitude != null ? performance.PressureAltitude.Feet : -1,
+						performance.Airspeed != null ? performance.Airspeed.Knots : -1,
+						performance.FuelFlow,
+						performance.Rate);
+				}
+			}
+		}
 
         private void ApplyFieldsToAircraft() {
             _Aircraft.Registration = txtRegistration.Text;
@@ -152,7 +170,7 @@ namespace FlightPlanner.UserInterface.Dialogs {
             }
 
             _Aircraft.CruisePerformance.Clear();
-            foreach (DataGridViewRow row in dgvPerformance.Rows) {
+            foreach (DataGridViewRow row in dgvCruisePerformance.Rows) {
                 if (row.IsNewRow) {
                     continue;
                 }
@@ -165,7 +183,23 @@ namespace FlightPlanner.UserInterface.Dialogs {
 
                 _Aircraft.CruisePerformance.Add(performance);
             }
-        }
+			
+			_Aircraft.ClimbPerformance.Clear();
+			foreach (DataGridViewRow row in dgvClimbPerformance.Rows) {
+				if (row.IsNewRow) {
+					continue;
+				}
+
+				Performance performance = new Performance() {
+					PressureAltitude = new Altitude(Altitude.Unit.Feet, Convert.ToDouble(row.Cells[0].Value)),
+					Airspeed = new Airspeed(Convert.ToInt32(row.Cells[1].Value)),
+					FuelFlow = Convert.ToDouble(row.Cells[2].Value),
+					Rate = Convert.ToInt32(row.Cells[3].Value)
+				};
+
+				_Aircraft.ClimbPerformance.Add(performance);
+			}
+		}
 
         private void btnCancel_Click(object sender, EventArgs e) {
             Close();

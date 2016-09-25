@@ -34,12 +34,15 @@ namespace FlightPlanner.Aircrafts {
 
 		public List<Performance> CruisePerformance { get; set; }
 
+		public List<Performance> ClimbPerformance { get; set; }
+
 		public TypeOfFuel FuelType { get; set; }
 
 		public Aircraft() {
 			LoadingStations = new List<LoadingStation>();
 			CenterOfGravityLimits = new CenterOfGravity();
 			CruisePerformance = new List<Performance>();
+			ClimbPerformance = new List<Performance>();
 		}
 
 		public override String ToString() {
@@ -48,6 +51,17 @@ namespace FlightPlanner.Aircrafts {
 
 		public Performance GetCruisePerformanceAt(Altitude altitude) {
 			return Performance.CalculateAtAltitude(CruisePerformance, altitude);
+		}
+
+		public Performance GetClimbPerformanceAt(Altitude altitude) {
+			return Performance.CalculateAtAltitude(ClimbPerformance, altitude);
+		}
+
+		public Performance GetClimbPerformanceAt(Altitude cruiseAltitude, Altitude climbFromAltitude) {
+			Altitude climbPerformanceAltitude = new Altitude(Altitude.Unit.Feet, (cruiseAltitude.Feet - climbFromAltitude.Feet) * 0.66 + climbFromAltitude.Feet);
+			Performance climbPerformance = GetClimbPerformanceAt(climbPerformanceAltitude);
+
+			return climbPerformance;
 		}
 
 		public Double ConvertFuelToMass(Double fuel) {

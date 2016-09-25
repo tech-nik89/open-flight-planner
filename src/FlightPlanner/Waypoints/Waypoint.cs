@@ -7,6 +7,8 @@ namespace FlightPlanner.Waypoints {
 
 		private readonly Country _Country;
 
+		private String _Name;
+
 		public Waypoint(Coordinate coordinate, Country country)
 			: base(coordinate.Latitude, coordinate.Longitude) {
 
@@ -21,7 +23,14 @@ namespace FlightPlanner.Waypoints {
 
 		public virtual String Name {
 			get {
+				if (!String.IsNullOrWhiteSpace(_Name)) {
+					return _Name;
+				}
+
 				return String.Format("WP-{0}-{1}", Math.Round(Latitude, 0), Math.Round(Longitude, 0));
+			}
+			set {
+				_Name = value;
 			}
 		}
 

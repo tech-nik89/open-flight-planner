@@ -44,6 +44,8 @@ namespace HtmlExport {
 			ChartArea chartArea = new ChartArea("Mass and Balance");
 			chartArea.AxisX.MajorGrid.Enabled = false;
 			chartArea.AxisY.MajorGrid.Enabled = false;
+			chartArea.AxisX.IsStartedFromZero = false;
+			chartArea.AxisY.IsStartedFromZero = false;
 			chartArea.AxisX.LabelStyle.Format = "{0:0.000}";
 			chartArea.AxisY.LabelStyle.Format = "{0:0}";
 			chart.ChartAreas.Add(chartArea);

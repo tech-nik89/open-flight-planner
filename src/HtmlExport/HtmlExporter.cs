@@ -16,6 +16,8 @@ namespace HtmlExport {
 
 		public String CurrentStep { get; private set; }
 
+		private const String NonBreakingSpace = "&nbsp;";
+
 		private const Int32 Steps = 6;
 
 		public String Name {
@@ -118,7 +120,8 @@ namespace HtmlExport {
 			document.AppendLine(CreateTag("th", "MH"));
 			document.AppendLine(CreateTag("th", "GS"));
 			document.AppendLine(CreateTag("th", "Distance"));
-			document.AppendLine(CreateTag("th", "Time"));
+			document.AppendLine(CreateTag("th", "Leg Time"));
+			document.AppendLine(CreateTag("th", "Act Time"));
 			document.AppendLine("</tr>");
 
 			foreach (Leg leg in flightPlan.Route.Legs) {
@@ -131,6 +134,7 @@ namespace HtmlExport {
 				document.AppendLine(CreateTag("td", leg.GroundSpeed.ToString()));
 				document.AppendLine(CreateTag("td", leg.Distance.FormattedNauticalMiles));
 				document.AppendLine(CreateTag("td", leg.TimeFormatted));
+				document.AppendLine(CreateTag("td", NonBreakingSpace));
 				document.AppendLine("</tr>");
 			}
 

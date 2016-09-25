@@ -15,13 +15,13 @@ namespace FlightPlanner.UserInterface.Dialogs {
 
         public Boolean ApplyAltitude {
             get {
-                return chkAltitude.Checked;
+                return chkAltitude.Checked && Altitude != null;
             }
         }
 
         public Boolean ApplyWind {
             get {
-                return chkWind.Checked;
+                return chkWind.Checked && Wind != null;
             }
         }
 
@@ -81,6 +81,15 @@ namespace FlightPlanner.UserInterface.Dialogs {
             Altitude = Altitude.Parse(txtAltitude.Text);
             txtAltitude.Text = Altitude.ToString();
         }
+
+		private void txtAltitude_Leave(object sender, EventArgs e) {
+			if (String.IsNullOrWhiteSpace(txtAltitude.Text)) {
+				return;
+			}
+
+			Altitude = Altitude.Parse(txtAltitude.Text);
+			txtAltitude.Text = Altitude.ToString();
+		}
 
 		private void cbxGaforArea_SelectedIndexChanged(object sender, EventArgs e) {
 			Int32 area = -1;

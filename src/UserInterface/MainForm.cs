@@ -97,7 +97,8 @@ namespace FlightPlanner.UserInterface {
                 leg.Name,
                 leg.Distance.ToString(),
                 Formatting.FormatDirection(leg.MagneticCourse),
-                Formatting.FormatDirection(leg.MagneticHeading)
+                Formatting.FormatDirection(leg.MagneticHeading),
+				leg.TimeFormatted
             };
 
             e.Item = new ListViewItem(fields);
@@ -244,6 +245,34 @@ namespace FlightPlanner.UserInterface {
 		}
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+			Boolean continueClosing = SaveActiveFlightPlan();
+
+			if (!continueClosing) {
+				e.Cancel = true;
+				return;
+			}
+
+			SaveWindowSettings();
+		}
+
+		private Boolean SaveActiveFlightPlan() {
+			if (!ActiveFlightPlan.Dirty) {
+				return true;
+			}
+
+			DialogResult result = MessageBox.Show(Strings.UnsavedChangesMessage, Strings.Unsaved, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+			if (result == DialogResult.Yes) {
+				SaveActiveFlightPlan(false);
+				return true;
+			}
+			else if (result == DialogResult.No) {
+				return true;
+			}
+
+			return false;
+		}
+
+		private void SaveWindowSettings() {
 			Config.Current.WindowState = (Int32)WindowState;
 			Config.Current.WindowPosition = new System.Windows.Point(Left, Top);
 			Config.Current.WindowSize = new System.Windows.Size(Width, Height);
@@ -418,6 +447,11 @@ namespace FlightPlanner.UserInterface {
 		}
 
 		private void OpenActiveFlightPlan() {
+			Boolean continueOpen = SaveActiveFlightPlan();
+			if (!continueOpen) {
+				return;
+			}
+
 			ofdOpen.Filter = FlightPlan.Filter;
 			DialogResult result = ofdOpen.ShowDialog();
 
@@ -487,6 +521,29 @@ namespace FlightPlanner.UserInterface {
 		private void mnuInfoAbout_Click(object sender, EventArgs e) {
 			AboutForm form = new AboutForm();
 			form.ShowDialog();
+		}
+
+		private void mnuRouteWaypointDetails_Click(object sender, EventArgs e) {
+			if (lvwWaypoints.SelectedIndices.Count == 0) {
+				return;
+			}
+
+			Waypoint waypoint = ActiveFlightPlan.Route.Waypoints.ElementAt(lvwWaypoints.SelectedIndices[0]);
+			WaypointDetailsForm form = new WaypointDetailsForm(waypoint);
+			DialogResult result = form.ShowDialog();
+
+			if (result == DialogResult.OK) {
+				UpdateRoute();
+			}
+		}
+
+		private void cmsWaypointCenter_Click(object sender, EventArgs e) {
+			if (lvwWaypoints.SelectedIndices.Count == 0) {
+				return;
+			}
+
+			Waypoint waypoint = ActiveFlightPlan.Route.Waypoints.ElementAt(lvwWaypoints.SelectedIndices[0]);
+			mapMain.Position = new Coordinate(waypoint.Latitude, waypoint.Longitude);
 		}
 	}
 }

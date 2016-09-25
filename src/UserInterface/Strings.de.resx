@@ -579,4 +579,22 @@
   <data name="WeatherTextReport" xml:space="preserve">
     <value>Wetterbericht Text</value>
   </data>
+  <data name="UnsavedChangesMessage" xml:space="preserve">
+    <value>Der aktuelle Flugplan hat ungespeicherte Änderungen. Soll er jetzt gespeichert werden?</value>
+  </data>
+  <data name="Center" xml:space="preserve">
+    <value>Zentrieren</value>
+  </data>
+  <data name="ClimbPerformance" xml:space="preserve">
+    <value>Steigleistung</value>
+  </data>
+  <data name="ClimbRate" xml:space="preserve">
+    <value>Steigrate</value>
+  </data>
+  <data name="OpenAfterExport" xml:space="preserve">
+    <value>Nach dem Export öffnen</value>
+  </data>
+  <data name="WaypointDetails" xml:space="preserve">
+    <value>Wegpunkt Details</value>
+  </data>
 </root>

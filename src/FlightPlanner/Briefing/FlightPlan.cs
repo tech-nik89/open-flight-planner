@@ -2,22 +2,31 @@
 using FlightPlanner.Storage;
 using FlightPlanner.Waypoints;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 namespace FlightPlanner.Briefing {
 	public class FlightPlan {
-		
-		public Aircraft Aircraft { get; set; }
+
+		private Aircraft _Aircraft;
+
+		public Aircraft Aircraft {
+			get {
+				return _Aircraft;
+			}
+			set {
+				_Aircraft = value;
+				Dirty = true;
+			}
+		}
 
 		public Route Route { get; set; }
 
-		public Dictionary<FuelTank, Double> FuelTanks { get; private set; }
+		public FuelTanks FuelTanks { get; private set; }
 
-		public Dictionary<LoadingStation, Double> Loading { get; private set; }
+		public Loading Loading { get; private set; }
 
-		private static readonly String _Extension = "ofpx";
+		private const String _Extension = "ofpx";
 		private static readonly Encoding _Encoding = Encoding.UTF8;
 
 		public static String Filter {
@@ -26,7 +35,8 @@ namespace FlightPlanner.Briefing {
 			}
 		}
 
-		public static String Extension { get {
+		public static String Extension {
+			get {
 				return _Extension;
 			}
 		}
@@ -36,12 +46,15 @@ namespace FlightPlanner.Briefing {
 				return _Encoding;
 			}
 		}
+		
+		public Boolean Dirty { get; internal set; }
 
 		public FlightPlan() {
 			Aircraft = new Aircraft();
-			FuelTanks = new Dictionary<FuelTank, Double>();
-			Loading = new Dictionary<LoadingStation, Double>();
+			FuelTanks = new FuelTanks(this);
+			Loading = new Loading(this);
 			Route = new Route(this);
+			Dirty = false;
 		}
 
 		public static Boolean Save(FlightPlan flightPlan, String path) {
@@ -52,6 +65,8 @@ namespace FlightPlanner.Briefing {
 			FlightPlanXmlDocument document = new FlightPlanXmlDocument();
 			document.SaveFlightPlan(flightPlan);
 			document.Save(path);
+
+			flightPlan.Dirty = false;
 
 			return true;
 		}
@@ -64,7 +79,10 @@ namespace FlightPlanner.Briefing {
 			FlightPlanXmlDocument document = new FlightPlanXmlDocument();
 			document.Load(path);
 
-			return document.ReadFlightPlan();
+			FlightPlan flightPlan = document.ReadFlightPlan();
+			flightPlan.Dirty = false;
+
+			return flightPlan;
 		}
 	}
 }

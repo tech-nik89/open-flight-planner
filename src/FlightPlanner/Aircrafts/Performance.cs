@@ -12,6 +12,8 @@ namespace FlightPlanner.Aircrafts {
 
 		public Double FuelFlow { get; set; }
 
+		public Int32 Rate { get; set; }
+
 		public static Performance CalculateAtAltitude(List<Performance> items, Altitude altitude) {
 
 			Performance performance = new Performance();

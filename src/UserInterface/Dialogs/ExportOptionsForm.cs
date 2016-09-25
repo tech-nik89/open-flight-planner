@@ -28,6 +28,8 @@ namespace FlightPlanner.UserInterface.Dialogs {
 			chkGafor.Text = Strings.Gafor;
 			chkWeatherTextReport.Text = Strings.WeatherTextReport;
 			chkSignificantWeatherChart.Text = Strings.SignificantWeatherChart;
+
+			chkOpenAfterExport.Text = Strings.OpenAfterExport;
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e) {
@@ -46,7 +48,8 @@ namespace FlightPlanner.UserInterface.Dialogs {
 				Metar = chkMetar.Checked,
 				Gafor = chkGafor.Checked,
 				TextWeatherReport = chkWeatherTextReport.Checked,
-				SignificantWeatherChart = chkSignificantWeatherChart.Checked
+				SignificantWeatherChart = chkSignificantWeatherChart.Checked,
+				OpenAfterExport = chkOpenAfterExport.Checked
 			};
 
 			Close();

@@ -39,6 +39,8 @@ namespace FlightPlanner.Waypoints {
 			if (count - 1 > _Legs.Count) {
 				_Legs.Add(new Leg(this, _Waypoints[count - 2], _Waypoints[count - 1]));
 			}
+
+			_FlightPlan.Dirty = true;
 		}
 
 		public Int32 WaypointCount {
@@ -73,6 +75,7 @@ namespace FlightPlanner.Waypoints {
 			}
             
 			ReassignWaypointsToLegs();
+			_FlightPlan.Dirty = true;
 		}
 
         public void MoveWaypoint(Int32 index, WaypointMoveDirection direction) {
@@ -106,6 +109,7 @@ namespace FlightPlanner.Waypoints {
             }
 
             ReassignWaypointsToLegs();
+			_FlightPlan.Dirty = true;
         }
 
 		private void ReassignWaypointsToLegs() {
@@ -176,18 +180,24 @@ namespace FlightPlanner.Waypoints {
             foreach (Leg leg in _Legs) {
                 leg.Wind = wind.Clone();
             }
+
+			_FlightPlan.Dirty = true;
         }
 
         public void ApplyGlobalAltitude(Altitude altitude) {
             foreach (Leg leg in _Legs) {
                 leg.Altitude = altitude.Clone();
             }
-        }
+
+			_FlightPlan.Dirty = true;
+		}
 
 		public void ApplyGlobalGaforArea(Int32 area) {
 			foreach (Leg leg in _Legs) {
 				leg.GaforArea = area;
 			}
+
+			_FlightPlan.Dirty = true;
 		}
 
 		public Boolean ApplyUpperWind(IEnrouteWeatherSource weatherSource) {
@@ -205,6 +215,7 @@ namespace FlightPlanner.Waypoints {
 				leg.Wind = IntercalateWindForAltitude(upperWind[leg.GaforArea], leg.Altitude);
 			}
 
+			_FlightPlan.Dirty = true;
 			return true;
 		}
 

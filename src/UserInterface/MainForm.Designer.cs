@@ -23,6 +23,7 @@
 		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
 		/// </summary>
 		private void InitializeComponent() {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.mnuMain = new System.Windows.Forms.MenuStrip();
 			this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,8 @@
 			this.mnuRouteWaypointsMoveDown = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsSep1 = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuRouteWaypointsRemove = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsSep9 = new System.Windows.Forms.ToolStripSeparator();
+			this.mnuRouteWaypointDetails = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsSep2 = new System.Windows.Forms.ToolStripSeparator();
 			this.mnuRouteGlobalSettings = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuRouteUpperWind = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,6 +70,8 @@
 			this.clnWaypointName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.clnWaypointLat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.clnWaypointLng = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.cmsWaypoint = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.cmsWaypointDetails = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabRoute = new System.Windows.Forms.TabControl();
 			this.tabMap = new System.Windows.Forms.TabPage();
 			this.ehMapMain = new System.Windows.Forms.Integration.ElementHost();
@@ -78,7 +83,7 @@
 			this.clnLegDistance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.clnLegMC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.clnLegMH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.loLegOptions = new FlightPlanner.UserInterface.Controls.LegOptionsControl();
+			this.clnLegTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tsMain = new System.Windows.Forms.ToolStrip();
 			this.tsbOpen = new System.Windows.Forms.ToolStripButton();
 			this.tsbSave = new System.Windows.Forms.ToolStripButton();
@@ -99,11 +104,14 @@
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.pgbProgress = new System.Windows.Forms.ToolStripProgressBar();
 			this.tslStatus = new System.Windows.Forms.ToolStripStatusLabel();
+			this.loLegOptions = new FlightPlanner.UserInterface.Controls.LegOptionsControl();
+			this.cmsWaypointCenter = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnuMain.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
 			this.scMain.Panel1.SuspendLayout();
 			this.scMain.Panel2.SuspendLayout();
 			this.scMain.SuspendLayout();
+			this.cmsWaypoint.SuspendLayout();
 			this.tabRoute.SuspendLayout();
 			this.tabMap.SuspendLayout();
 			this.tabLegs.SuspendLayout();
@@ -219,6 +227,8 @@
             this.mnuRouteWaypointsMoveDown,
             this.tsSep1,
             this.mnuRouteWaypointsRemove,
+            this.tsSep9,
+            this.mnuRouteWaypointDetails,
             this.tsSep2,
             this.mnuRouteGlobalSettings,
             this.mnuRouteUpperWind,
@@ -277,6 +287,18 @@
 			this.mnuRouteWaypointsRemove.Size = new System.Drawing.Size(220, 22);
 			this.mnuRouteWaypointsRemove.Text = "Remove selected waypoints";
 			this.mnuRouteWaypointsRemove.Click += new System.EventHandler(this.mnuRouteWaypointRemove_Click);
+			// 
+			// tsSep9
+			// 
+			this.tsSep9.Name = "tsSep9";
+			this.tsSep9.Size = new System.Drawing.Size(217, 6);
+			// 
+			// mnuRouteWaypointDetails
+			// 
+			this.mnuRouteWaypointDetails.Name = "mnuRouteWaypointDetails";
+			this.mnuRouteWaypointDetails.Size = new System.Drawing.Size(220, 22);
+			this.mnuRouteWaypointDetails.Text = "Waypoint details";
+			this.mnuRouteWaypointDetails.Click += new System.EventHandler(this.mnuRouteWaypointDetails_Click);
 			// 
 			// tsSep2
 			// 
@@ -414,7 +436,7 @@
 			// 
 			this.mnuInfoAbout.Name = "mnuInfoAbout";
 			this.mnuInfoAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.mnuInfoAbout.Size = new System.Drawing.Size(152, 22);
+			this.mnuInfoAbout.Size = new System.Drawing.Size(114, 22);
 			this.mnuInfoAbout.Text = "Info";
 			this.mnuInfoAbout.Click += new System.EventHandler(this.mnuInfoAbout_Click);
 			// 
@@ -444,6 +466,7 @@
             this.clnWaypointName,
             this.clnWaypointLat,
             this.clnWaypointLng});
+			this.lvwWaypoints.ContextMenuStrip = this.cmsWaypoint;
 			this.lvwWaypoints.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lvwWaypoints.FullRowSelect = true;
 			this.lvwWaypoints.GridLines = true;
@@ -471,6 +494,21 @@
 			// 
 			this.clnWaypointLng.Text = "Longitude";
 			this.clnWaypointLng.Width = 80;
+			// 
+			// cmsWaypoint
+			// 
+			this.cmsWaypoint.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsWaypointDetails,
+            this.cmsWaypointCenter});
+			this.cmsWaypoint.Name = "cmsWaypoint";
+			this.cmsWaypoint.Size = new System.Drawing.Size(163, 70);
+			// 
+			// cmsWaypointDetails
+			// 
+			this.cmsWaypointDetails.Name = "cmsWaypointDetails";
+			this.cmsWaypointDetails.Size = new System.Drawing.Size(162, 22);
+			this.cmsWaypointDetails.Text = "Waypoint details";
+			this.cmsWaypointDetails.Click += new System.EventHandler(this.mnuRouteWaypointDetails_Click);
 			// 
 			// tabRoute
 			// 
@@ -539,7 +577,8 @@
             this.clnLegName,
             this.clnLegDistance,
             this.clnLegMC,
-            this.clnLegMH});
+            this.clnLegMH,
+            this.clnLegTime});
 			this.lvwLegs.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lvwLegs.FullRowSelect = true;
 			this.lvwLegs.GridLines = true;
@@ -575,14 +614,10 @@
 			this.clnLegMH.Text = "Magnetic Heading";
 			this.clnLegMH.Width = 130;
 			// 
-			// loLegOptions
+			// clnLegTime
 			// 
-			this.loLegOptions.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.loLegOptions.Leg = null;
-			this.loLegOptions.Location = new System.Drawing.Point(0, 0);
-			this.loLegOptions.Name = "loLegOptions";
-			this.loLegOptions.Size = new System.Drawing.Size(512, 232);
-			this.loLegOptions.TabIndex = 0;
+			this.clnLegTime.Text = "Time";
+			this.clnLegTime.Width = 130;
 			// 
 			// tsMain
 			// 
@@ -749,6 +784,22 @@
 			this.tslStatus.Size = new System.Drawing.Size(39, 17);
 			this.tslStatus.Text = "Ready";
 			// 
+			// loLegOptions
+			// 
+			this.loLegOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.loLegOptions.Leg = null;
+			this.loLegOptions.Location = new System.Drawing.Point(0, 0);
+			this.loLegOptions.Name = "loLegOptions";
+			this.loLegOptions.Size = new System.Drawing.Size(512, 232);
+			this.loLegOptions.TabIndex = 0;
+			// 
+			// cmsWaypointCenter
+			// 
+			this.cmsWaypointCenter.Name = "cmsWaypointCenter";
+			this.cmsWaypointCenter.Size = new System.Drawing.Size(162, 22);
+			this.cmsWaypointCenter.Text = "Center";
+			this.cmsWaypointCenter.Click += new System.EventHandler(this.cmsWaypointCenter_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -771,6 +822,7 @@
 			this.scMain.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
 			this.scMain.ResumeLayout(false);
+			this.cmsWaypoint.ResumeLayout(false);
 			this.tabRoute.ResumeLayout(false);
 			this.tabMap.ResumeLayout(false);
 			this.tabLegs.ResumeLayout(false);
@@ -864,6 +916,12 @@
 		private System.Windows.Forms.ToolStripMenuItem mnuRouteExportGPX;
 		private System.Windows.Forms.ToolStripMenuItem mnuRouteExportKML;
 		private System.Windows.Forms.ToolStripMenuItem mnuRouteExportWaypointPlus;
+		private System.Windows.Forms.ColumnHeader clnLegTime;
+		private System.Windows.Forms.ToolStripSeparator tsSep9;
+		private System.Windows.Forms.ToolStripMenuItem mnuRouteWaypointDetails;
+		private System.Windows.Forms.ContextMenuStrip cmsWaypoint;
+		private System.Windows.Forms.ToolStripMenuItem cmsWaypointDetails;
+		private System.Windows.Forms.ToolStripMenuItem cmsWaypointCenter;
 	}
 }
 

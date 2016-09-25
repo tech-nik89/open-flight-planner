@@ -214,11 +214,38 @@ namespace FlightPlanner.UserInterface {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Center ähnelt.
+        /// </summary>
+        internal static string Center {
+            get {
+                return ResourceManager.GetString("Center", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Center of gravity ähnelt.
         /// </summary>
         internal static string CenterOfGravity {
             get {
                 return ResourceManager.GetString("CenterOfGravity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Climb Performance ähnelt.
+        /// </summary>
+        internal static string ClimbPerformance {
+            get {
+                return ResourceManager.GetString("ClimbPerformance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Climb rate ähnelt.
+        /// </summary>
+        internal static string ClimbRate {
+            get {
+                return ResourceManager.GetString("ClimbRate", resourceCulture);
             }
         }
         
@@ -817,6 +844,15 @@ namespace FlightPlanner.UserInterface {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open after export ähnelt.
+        /// </summary>
+        internal static string OpenAfterExport {
+            get {
+                return ResourceManager.GetString("OpenAfterExport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Path ähnelt.
         /// </summary>
         internal static string Path {
@@ -1249,6 +1285,15 @@ namespace FlightPlanner.UserInterface {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The current flight plan has unsaved changes. Do you want to save it now? ähnelt.
+        /// </summary>
+        internal static string UnsavedChangesMessage {
+            get {
+                return ResourceManager.GetString("UnsavedChangesMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Update ähnelt.
         /// </summary>
         internal static string Update {
@@ -1326,6 +1371,15 @@ namespace FlightPlanner.UserInterface {
         internal static string Waypoint {
             get {
                 return ResourceManager.GetString("Waypoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Waypoint details ähnelt.
+        /// </summary>
+        internal static string WaypointDetails {
+            get {
+                return ResourceManager.GetString("WaypointDetails", resourceCulture);
             }
         }
         

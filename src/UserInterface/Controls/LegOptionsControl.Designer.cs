@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
-			FlightPlanner.Common.Wind wind1 = new FlightPlanner.Common.Wind();
+			FlightPlanner.Common.Wind wind2 = new FlightPlanner.Common.Wind();
 			this.gbxDetails = new System.Windows.Forms.GroupBox();
 			this.lvwDetails = new System.Windows.Forms.ListView();
 			this.clnKey = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,6 +37,8 @@
 			this.lblWind = new System.Windows.Forms.Label();
 			this.wcLeg = new FlightPlanner.UserInterface.Controls.WindControl();
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.lblClimbFrom = new System.Windows.Forms.Label();
+			this.txtClimbFrom = new System.Windows.Forms.TextBox();
 			this.gbxDetails.SuspendLayout();
 			this.gbxSettings.SuspendLayout();
 			this.SuspendLayout();
@@ -87,6 +89,8 @@
 			// 
 			this.gbxSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.gbxSettings.Controls.Add(this.txtClimbFrom);
+			this.gbxSettings.Controls.Add(this.lblClimbFrom);
 			this.gbxSettings.Controls.Add(this.cbxGaforArea);
 			this.gbxSettings.Controls.Add(this.lblGafor);
 			this.gbxSettings.Controls.Add(this.txtAltitude);
@@ -125,7 +129,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtAltitude.Location = new System.Drawing.Point(104, 55);
 			this.txtAltitude.Name = "txtAltitude";
-			this.txtAltitude.Size = new System.Drawing.Size(368, 20);
+			this.txtAltitude.Size = new System.Drawing.Size(183, 20);
 			this.txtAltitude.TabIndex = 4;
 			this.txtAltitude.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAltitude_KeyUp);
 			// 
@@ -155,16 +159,36 @@
 			this.wcLeg.Name = "wcLeg";
 			this.wcLeg.Size = new System.Drawing.Size(368, 27);
 			this.wcLeg.TabIndex = 0;
-			wind1.Direction = 0;
-			wind1.GustSpeed = 0;
-			wind1.Speed = 0;
-			this.wcLeg.Wind = wind1;
+			wind2.Direction = 0;
+			wind2.GustSpeed = 0;
+			wind2.Speed = 0;
+			wind2.Variable = false;
+			this.wcLeg.Wind = wind2;
 			this.wcLeg.WindChanged += new System.EventHandler(this.wcLeg_WindChanged);
 			// 
 			// contextMenuStrip1
 			// 
 			this.contextMenuStrip1.Name = "contextMenuStrip1";
 			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+			// 
+			// lblClimbFrom
+			// 
+			this.lblClimbFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.lblClimbFrom.AutoSize = true;
+			this.lblClimbFrom.Location = new System.Drawing.Point(293, 58);
+			this.lblClimbFrom.Name = "lblClimbFrom";
+			this.lblClimbFrom.Size = new System.Drawing.Size(58, 13);
+			this.lblClimbFrom.TabIndex = 7;
+			this.lblClimbFrom.Text = "Climb from:";
+			// 
+			// txtClimbFrom
+			// 
+			this.txtClimbFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtClimbFrom.Location = new System.Drawing.Point(357, 55);
+			this.txtClimbFrom.Name = "txtClimbFrom";
+			this.txtClimbFrom.Size = new System.Drawing.Size(115, 20);
+			this.txtClimbFrom.TabIndex = 8;
+			this.txtClimbFrom.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtClimbFrom_KeyUp);
 			// 
 			// LegOptionsControl
 			// 
@@ -195,5 +219,7 @@
 		private System.Windows.Forms.ComboBox cbxGaforArea;
 		private System.Windows.Forms.Label lblGafor;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+		private System.Windows.Forms.TextBox txtClimbFrom;
+		private System.Windows.Forms.Label lblClimbFrom;
 	}
 }

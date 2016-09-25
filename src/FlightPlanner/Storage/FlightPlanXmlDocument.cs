@@ -234,7 +234,9 @@ namespace FlightPlanner.Storage {
 					flightPlan.Route.AddWaypoint(new Airfield(name, icao, new Coordinate(latitude, longitude), new Elevation(Altitude.Unit.Feet, elevation), runways, new Frequency(frequency), country));
 				}
 				else if (xmlWaypoint.Name == "waypoint") {
-					flightPlan.Route.AddWaypoint(new Waypoint(new Coordinate(latitude, longitude), country));
+					Waypoint waypoint = new Waypoint(new Coordinate(latitude, longitude), country);
+					waypoint.Name = name;
+					flightPlan.Route.AddWaypoint(waypoint);
 				}
 			}
 
